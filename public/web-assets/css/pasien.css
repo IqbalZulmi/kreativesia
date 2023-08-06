@@ -1,0 +1,24 @@
+:root{
+    --background-color: #ffffff;
+    --text-color: #111827;
+    --hard-color: #c98f8f;
+    --soft-color: #e7c7c6;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+.min-vh-100 .row .col-12 .text-center{
+    width: 300px;
+    padding-bottom: 1px;
+}
+
+.min-vh-100 .row .col-md-6 .card{
+    box-shadow: 0 0 7px var(--shadow-color);
+}
+
+.border-bottom.border-dark{
+    border-color: var(--hard-color) !important;
+}

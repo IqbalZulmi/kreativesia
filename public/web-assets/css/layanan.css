@@ -1,0 +1,101 @@
+:root{
+    --background-color: #ffffff;
+    --text-color: #111827;
+    --hard-color: #c98f8f;
+    --soft-color: #e7c7c6;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+.slick-prev,
+.slick-next{
+    color: var(--hard-color);
+    background-color: transparent;
+    border: 0px solid transparent;
+}
+
+
+.min-vh-100 .container .row .col-lg-7 .section-header{
+    margin-top: 61px;
+}
+
+.min-vh-100 .container .row .col-lg-7 .section-content .card{
+    width: 105px;
+    height: 140px;
+    box-shadow: 0 0 3px var(--shadow-color);
+    margin-right: 15px;
+}
+
+.min-vh-100 .container .row .col-lg-7 .section-content .card .card-img-top{
+    width: 58px;
+    height: 54px;
+}
+
+.min-vh-100 .container .row .col-lg-7 .btn{
+    box-shadow: 0px 5px 0px var(--hard-color);
+    transition: box-shadow 0.3s ease-in
+}
+
+.min-vh-100 .container .row .col-lg-7 .btn:hover{
+    box-shadow: 0px 7px 0px var(--hard-color);
+}
+
+.heading {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    width: fit-content;
+    text-transform: uppercase;
+}
+
+.heading::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 30px);
+    height: 1px;
+    background-color: var(--text-color);
+    opacity: 50%;
+}
+
+.heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--hard-color);
+}
+
+#psikolog .heading span {
+    position: relative;
+}
+
+#psikolog .heading span::before{
+    box-shadow: 8px 10px 5px var(--shadow-color);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: 100%;
+    background-color: var(--soft-color);
+    z-index: -1;
+    transform: translate(0,0) rotate(0) skewX(0) skewY(-3deg) scaleX(1) scaleY(1);
+}
+
+#psikolog .container .row .col .card{
+    box-shadow: 0 0 7px var(--shadow-color);
+}
+
+#psikolog .container .row .col .card .row .col-8 .card-body .d-flex .btn:hover{
+    background-color: #a67676 !important;
+}
