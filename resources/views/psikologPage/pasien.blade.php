@@ -30,6 +30,9 @@
                                         <span class="fw-medium text-capitalize">jenis kelamin</span> : laki-laki
                                     </p>
                                     <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn bg-hard text-light me-2" data-bs-toggle="modal" data-bs-target="#DetailModal">
+                                            <i class="fa-solid fa-circle-info"></i> Detail
+                                        </button>
                                         <a href="#" class="btn bg-hard text-light">
                                             Chat  <i class="fa-solid fa-comment"></i>
                                         </a>
@@ -159,6 +162,10 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped table-hover border table-bordered align-middle">
                                         <tr>
+                                            <th class="text-capitalize">Id janji temu</th>
+                                            <td>12</td>
+                                        </tr>
+                                        <tr>
                                             <th class="text-capitalize">Tingkat masalah</th>
                                             <td><span class="badge text-bg-danger">urgent</span></td>
                                         </tr>
@@ -222,7 +229,7 @@
                 <div class="modal-body">
                     <form action="">
                         <label for="" class="form-label">Keterangan</label>
-                        <textarea class="form-control" name="keterangan" rows="4"></textarea>
+                        <textarea class="form-control" name="keterangan" rows="4" required></textarea>
                     </form>
                 </div>
                 <div class="modal-footer">
