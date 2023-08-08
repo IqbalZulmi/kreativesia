@@ -1,9 +1,9 @@
 @extends('layout.html')
 
 @section('content')
-    <div class="min-vh-100">
+    <div class="min-vh-100 section-warm-bg-color">
         <div class="container">
-            <h2 class="text-capitalize my-3">Data Riwayat Konsultasi</h2>
+            <h2 class="text-capitalize hard-color py-3">Data Riwayat Konsultasi</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-hover border table-bordered text-center">
                     <thead class="text-capitalize">
@@ -14,7 +14,6 @@
                             <th scope="col">nama psikolog</th>
                             <th scope="col">tanggal</th>
                             <th scope="col">status</th>
-                            <th scope="col">aksi</th>
                             <th scope="col">keterangan</th>
                         </tr>
                     </thead>
@@ -26,9 +25,6 @@
                             <td>Dr.Gacoan</td>
                             <td>20-10-2022</td>
                             <td>diterima</td>
-                            <td>
-                                <button class="btn bg-soft text-capitalize">chat <i class="fa-solid fa-comment text-light"></i></button>
-                            </td>
                             <td>-</td>
                         </tr>
                         <tr>
@@ -38,9 +34,6 @@
                             <td>Dr.Gacoan</td>
                             <td>20-10-2022</td>
                             <td>atur ulang jadwal</td>
-                            <td>
-                                <button class="btn bg-soft text-capitalize">edit <i class="fa-regular fa-pen-to-square text-light"></i></button>
-                            </td>
                             <td>ketersediaan saya pada tanggal 21</td>
                         </tr>
                     </tbody>
@@ -52,6 +45,9 @@
 
 @push('js')
     <script>
-        $('.table').DataTable();
+        $('.table').DataTable({
+            info: false,
+            dom: '<"row"<"col-sm-6 d-flex justify-content-center justify-content-sm-start mb-2 mb-sm-0"l><"col-sm-6 d-flex justify-content-center justify-content-sm-end"f>>rtp',
+        });
     </script>
 @endpush

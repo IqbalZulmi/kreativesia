@@ -1,5 +1,6 @@
 :root{
     --background-color: #ffffff;
+    --warm-background-color:#fff6f6;
     --text-color: #111827;
     --hard-color: #c98f8f;
     --soft-color: #e7c7c6;
@@ -8,6 +9,11 @@
 
 *{
     scroll-behavior: smooth;
+}
+
+.section-warm-bg-color{
+    z-index: -1;
+    background-color: var(--warm-background-color);
 }
 
 .hard-color{
@@ -143,4 +149,9 @@
     color: var(--text-color) !important;
     background-color: var(--soft-color) !important;
     border-color: var(--soft-color) !important;
+}
+
+div.dt-buttons.btn-group.flex-wrap button{
+    background-color: var(--hard-color);
+    border: var(--hard-color);
 }
