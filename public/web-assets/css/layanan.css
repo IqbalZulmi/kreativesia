@@ -34,6 +34,11 @@
     height: 54px;
 }
 
+.min-vh-100 .container .row .col-lg-7 .section-content .card .card-text{
+    min-width: 180px;
+    
+}
+
 .min-vh-100 .container .row .col-lg-7 .btn{
     box-shadow: 0px 5px 0px var(--hard-color);
     transition: box-shadow 0.3s ease-in
@@ -99,3 +104,9 @@
 #psikolog .container .row .col .card .row .col-8 .card-body .d-flex .btn:hover{
     background-color: #a67676 !important;
 }
+
+.card.btn:hover{
+    background-color: var(--background-color);   
+    box-shadow: 0 0 7px var(--shadow-color);
+}
+
