@@ -15,6 +15,9 @@
                 <li class="nav-item ms-0 ms-lg-4">
                     <a class="nav-link rounded-3 ps-2" href="/riwayat-konsultasi">riwayat</a>
                 </li>
+                <li class="nav-item ms-0 ms-lg-4">
+                    <a class="nav-link rounded-3 ps-2" href="/hasil-konsultasi">hasil konsultasi</a>
+                </li>
                 @auth
                 <li class="nav-item dropdown d-block d-lg-none">
                     <a class="nav-link rounded-3 ps-2 dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">

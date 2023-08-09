@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id_user');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->enum('role', ['mahasiswa', 'psikolog', 'perguruan tinggi', 'superadmin'])->default('mahasiswa');
-            $table->rememberToken();
+        Schema::create('jurusan/fakultas', function (Blueprint $table) {
+            $table->bigIncrements('id_jurusan/fakultas');
+            $table->string('jurusan/fakultas');
+            $table->string('kode_pt');
+            $table->foreign('kode_pt')->references('kode_pt')->on('perguruan_tinggi')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('fakultas');
     }
 };
