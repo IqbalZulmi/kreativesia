@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_pt');
             $table->string('alamat_pt');
             $table->integer('kode_pos_pt');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

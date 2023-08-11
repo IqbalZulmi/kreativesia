@@ -22,12 +22,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($perguruanTinggi as $index => $data )
                     <tr>
-                        <td>1</td>
-                        <td>N001</td>
-                        <td>Politeknik Negeri batam</td>
-                        <td>kepulauan riau</td>
-                        <td>0222</td>
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ $data->kode_pt }}</td>
+                        <td>{{ $data->nama_pt }}</td>
+                        <td>{{ $data->alamat_pt }}</td>
+                        <td>{{ $data->kode_pos_pt }}</td>
                         <td>
                             <button class="btn bg-soft text-capitalize" data-bs-toggle="modal" data-bs-target="#editModal">
                                 edit <i class="fa-regular fa-pen-to-square text-light"></i>
@@ -37,6 +38,11 @@
                             </button>
                         </td>
                     </tr>
+                    @empty
+                    <tr>
+                        <td rowspan="100%">Tidak ada yang ditampilkan</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -47,68 +53,64 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Buat Akun Psikolog</h5>
+                <h5 class="modal-title">Buat Akun Perguruan Tinggi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <form action="" class="row">
-                        <div class="mb-3 col-6">
-                            <label for="" class="form-label">Username</label>
-                            <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" required>
-                            @error('username')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+            <form action="{{ route('tambahPerguruanTinggi') }}" method="POST">
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @csrf
+                            <div class="mb-3 col-6">
+                                <label for="" class="form-label">Username</label>
+                                <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" required autofocus>
+                                @error('username')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="" class="form-label">Password</label>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="masukkan password" required>
+                                @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Kode Perguruan Tinggi</label>
+                                <input type="text" class="form-control @error('kode_pt') is-invalid @enderror" name="kode_pt" placeholder="Kode Perguruan Tinggi" required>
+                                @error('kode_pt')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nama Perguruan Tinggi</label>
+                                <input type="text" class="form-control @error('nama_pt') is-invalid @enderror" name="nama_pt" placeholder="Nama Perguruan Tinggi" required>
+                                @error('nama_pt')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Alamat Perguruan Tinggi</label>
+                                <input type="text" class="form-control @error('alamat_pt') is-invalid @enderror" name="alamat_pt" placeholder="Alamat perguruan tinggi" required>
+                                @error('alamat_pt')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Kode Pos Perguruan Tinggi</label>
+                                <input type="text" class="form-control @error('kode_pos_pt') is-invalid @enderror" name="kode_pos_pt" placeholder="Kode Pos Perguruan Tinggi" required>
+                                @error('kode_pos_pt')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="mb-3 col-6">
-                            <label for="" class="form-label">Password</label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="masukkan password" required>
-                            @error('password')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nomor STR</label>
-                            <input class="form-control @error('no_str') is-invalid @enderror" name="no_str" placeholder="Nomor STR Psikolog" required>
-                            @error('no_str')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nama</label>
-                            <input class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Nama psikolog" required>
-                            @error('nama')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Alumni</label>
-                            <input class="form-control @error('alumni') is-invalid @enderror" name="alumni" placeholder="Asal Universitas Psikolog" required>
-                            @error('alumni')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Email</label>
-                            <input class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email psikolog" required>
-                            @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nomor Telepon</label>
-                            <input class="form-control @error('no_telp') is-invalid @enderror" name="no_telp" placeholder="Nomor telepon Mahasiswa" required>
-                            @error('no_telp')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-success">Simpan</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -130,29 +132,29 @@
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Nomor STR</label>
-                        <input class="form-control @error('no_str') is-invalid @enderror" name="no_str" placeholder="Nomor STR Psikolog" required>
-                        @error('no_str')
+                        <input class="form-control @error('kode_pt') is-invalid @enderror" name="kode_pt" placeholder="Nomor STR Psikolog" required>
+                        @error('kode_pt')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Nama</label>
-                        <input class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Nama psikolog" required>
-                        @error('nama')
+                        <input class="form-control @error('nama_pt') is-invalid @enderror" name="nama" placeholder="Nama psikolog" required>
+                        @error('nama_pt')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">Alumni</label>
-                        <input class="form-control @error('alumni') is-invalid @enderror" name="alumni" placeholder="Asal Universitas Psikolog" required>
-                        @error('alumni')
+                        <input class="form-control @error('alamat_pt') is-invalid @enderror" name="alumni" placeholder="Asal Universitas Psikolog" required>
+                        @error('alamat_pt')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="" class="form-label">Email</label>
-                        <input class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email psikolog" required>
-                        @error('email')
+                        <label for="" class="form-label">kode_pos_pt</label>
+                        <input class="form-control @error('kode_pos_pt') is-invalid @enderror" name="kode_pos_pt" placeholder="kode_pos_pt psikolog" required>
+                        @error('kode_pos_pt')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

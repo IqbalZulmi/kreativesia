@@ -47,11 +47,12 @@
     box-shadow: 0 0 7px var(--shadow-color);
 }
 
-.navbar .container .collapse .navbar-nav .nav-item:hover .nav-link{
+.navbar .container .collapse .navbar-nav .nav-item.ms-0:hover .nav-link{
     color: var(--text-color) !important;
     background-color: var(--soft-color);
 }
 
+.nav-item.dropdown .dropdown-menu .dropdown-item:hover,
 .dropdown .dropdown-menu .nav-item .dropdown-item:hover{
     color: var(--text-color) !important;
     background-color: var(--soft-color);

@@ -5,19 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="{{ asset('web-assets/css/login.css') }}">
 </head>
-<body class="header finisher-header">
+<body class="min-vh-100 header finisher-header d-flex justify-content-center align-items-center">
     <div class="login-form card">
         <h2>Halodek</h2>
-        <form>
+        <form action="{{ route('loginProcess') }}" method="POST">
+            @csrf
             <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" id="email" placeholder="Masukan Email Anda" required>
+                <label for="email">Username</label>
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukan username Anda" required>
+                @error('username')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="form-group mb-3">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Masukan Kata Sandi Anda" required>
+                <label for="password">Kata Sandi</label>
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Kata Sandi Anda" required>
+                @error('password')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="login-forgot-password mb-3">
                 <a href="#" class="text-dark"> Lupa Kata Sandi ?</a>
@@ -29,6 +37,19 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="{{ asset('web-assets/js/finisher-header.es5.min.js') }}" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+
+    @if (session('notifikasi'))
+    <script>
+        Swal.fire({
+            text: '{{ session('notifikasi') }}',
+            icon: '{{ session('type') }}',
+            confirmButtonText:'OK',
+            showCloseButton: true,
+            timer: 2000,
+        })
+    </script>
+    @endif
     <script type="text/javascript">
         new FinisherHeader({
             "count": 6,

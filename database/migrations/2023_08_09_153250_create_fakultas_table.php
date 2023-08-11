@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jurusan/fakultas', function (Blueprint $table) {
-            $table->bigIncrements('id_jurusan/fakultas');
-            $table->string('jurusan/fakultas');
+        Schema::create('fakultas', function (Blueprint $table) {
+            $table->bigIncrements('id_fakultas');
+            $table->string('fakultas');
             $table->string('kode_pt');
             $table->foreign('kode_pt')->references('kode_pt')->on('perguruan_tinggi')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

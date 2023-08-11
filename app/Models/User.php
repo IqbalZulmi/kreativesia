@@ -19,11 +19,22 @@ class User extends Authenticatable
      */
     protected $primaryKey = 'id_user';
     protected $fillable = [
-        'id_user',
         'username',
         'password',
         'role',
     ];
+
+    public function perguruanTinggi(){
+        return $this->hasOne(PerguruanTinggi::class,'id_user');
+    }
+
+    public function mahasiswa(){
+        return $this->hasOne(Mahasiswa::class,'id_user');
+    }
+
+    public function psikolog(){
+        return $this->hasOne(Psikolog::class,'id_user');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,7 +52,6 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 }

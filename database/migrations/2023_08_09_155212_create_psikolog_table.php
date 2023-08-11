@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('alumni');
             $table->enum('status',['offline', 'online', 'sibuk'])->default('offline');
             $table->bigInteger('no_telp');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

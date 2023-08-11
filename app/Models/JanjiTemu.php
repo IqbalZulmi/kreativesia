@@ -9,9 +9,9 @@ class JanjiTemu extends Model
 {
     use HasFactory;
 
+    protected $table = 'janji_temu';
     protected $primaryKey = 'id_janji_temu';
     protected $fillable = [
-        'id_janji_temu',
         'nim',
         'no_str',
         'keluhan_umum',
@@ -21,4 +21,16 @@ class JanjiTemu extends Model
         'jenis_konsultasi',
         'status,'
     ];
+
+    public function mahasiswa(){
+        return $this->belongsTo(Mahasiswa::class,'nim');
+    }
+
+    public function psikolog(){
+        return $this->belongsTo(Psikolog::class,'no_str');
+    }
+
+    public function laporanKonsultasi(){
+        return $this->hasOne(LaporanKonsultasi::class,'id_janji_temu');
+    }
 }

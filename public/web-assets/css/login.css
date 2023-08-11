@@ -1,20 +1,13 @@
 :root{
     --background-color: #ffffff;
     --text-color: #111827;
-    --hard-color: var(--soft-color);
+    --hard-color: #c98f8f;
     --soft-color: #e7c7c6;
     --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
 *{
     scroll-behavior: smooth;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 .login-form {

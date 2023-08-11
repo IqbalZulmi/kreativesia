@@ -17,13 +17,13 @@ return new class extends Migration
             $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('kode_pt');
             $table->foreign('kode_pt')->references('kode_pt')->on('perguruan_tinggi')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('id_jurusan/fakultas');
-            $table->foreign('id_jurusan/fakultas')->references('id_jurusan/fakultas')->on('jurusan/fakultas')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('id_fakultas');
+            $table->foreign('id_fakultas')->references('id_fakultas')->on('fakultas')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nama_mahasiswa');
             $table->string('alamat');
             $table->string('email')->unique();
             $table->enum('jenis_kelamin', ['pria', 'wanita'])->default('pria');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
