@@ -24,7 +24,7 @@ class PerguruanTinggi extends Model
         return $this->belongsTo(User::class,'id_user');
     }
 
-    public function jurusan(){
+    public function fakultas(){
         return $this->hasMany(Fakultas::class, 'kode_pt');
     }
 

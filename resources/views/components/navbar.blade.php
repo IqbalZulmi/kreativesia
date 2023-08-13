@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand order-0" href="#">
-            <img src="" alt="" height="50"> halodek
+        <a class="navbar-brand order-0" href="/">
+            <img src="{{ asset('web-assets/image/logo-nav.png') }}" alt="" height="50">
         </a>
         <button class="navbar-toggler order-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,17 +25,17 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end animate slideIn">
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('updateStatusPsikolog',['jenis_status' => 'online']) }}">
                                         <i class="fa-solid fa-circle text-success"></i> online
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('updateStatusPsikolog',['jenis_status' => 'sibuk']) }}">
                                         <i class="fa-solid fa-circle text-warning"></i> sibuk
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('updateStatusPsikolog',['jenis_status' => 'offline']) }}">
                                         <i class="fa-solid fa-circle text-danger"></i> offline
                                     </a>
                                 </li>
@@ -76,18 +76,18 @@
                         <ul class="dropdown-menu dropdown-menu-end animate slideIn">
                             <li class="nav-item">
                                 <a class="dropdown-item">
-                                    <i class="fa-regular fa-user"></i>
+                                    <i class="fa-regular fa-user"></i> {{ Auth::user()->username }}
                                 </a>
                             </li>
                             <hr>
                             <li class="nav-item">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa-solid fa-key"></i> Ubah Kata Sandi
+                                <a class="dropdown-item" href="{{ Auth::user()->role === 'mahasiswa' ? route('showProfileMahasiswaPage') : (Auth::user()->role === 'psikolog' ? route('showProfilePsikologPage') : route('showProfilePerguruanPage')) }}">
+                                    <i class="fa-solid fa-address-card"></i> Profile
                                 </a>
                             </li>
                             <hr>
                             <li class="nav-item">
-                                <a class="dropdown-item" href="/logout">
+                                <a class="dropdown-item" href="{{ route('logout') }}">
                                     <i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar
                                 </a>
                             </li>
@@ -111,7 +111,20 @@
         </div>
         @auth
         <div class="dropdown ms-4 d-none d-lg-block order-lg-2">
-            <img src="https://learning-if.polibatam.ac.id/theme/image.php/moove/core/1675225508/u/f2" alt="" class="rounded-circle object-fit-cover" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @php
+                $photoUrl = 'https://learning-if.polibatam.ac.id/theme/image.php/moove/core/1675225508/u/f2';
+                $userRole = Auth::user()->role;
+                $userPhoto = null;
+
+                if ($userRole == 'mahasiswa') {
+                    $userPhoto = Auth::user()->mahasiswa->foto;
+                } elseif ($userRole == 'psikolog') {
+                    $userPhoto = Auth::user()->psikolog->foto;
+                } elseif ($userRole == 'perguruanTinggi') {
+                    $userPhoto = Auth::user()->perguruanTinggi->foto;
+                }
+            @endphp
+            <img src="{{ $userPhoto ? asset('storage/'.$userPhoto) : $photoUrl }}" alt="" class="rounded-circle object-fit-cover" height="35" width="35" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></span>
             <ul class="dropdown-menu dropdown-menu-end animate slideIn">
                 <li class="nav-item">
@@ -121,8 +134,8 @@
                 </li>
                 <hr>
                 <li class="nav-item">
-                    <a class="dropdown-item" href="#">
-                        <i class="fa-solid fa-key"></i> Ubah Kata Sandi
+                    <a class="dropdown-item" href="{{ Auth::user()->role === 'mahasiswa' ? route('showProfileMahasiswaPage') : (Auth::user()->role === 'psikolog' ? route('showProfilePsikologPage') : route('showProfilePerguruanPage')) }}">
+                        <i class="fa-solid fa-address-card"></i> Profile
                     </a>
                 </li>
                 <hr>

@@ -12,21 +12,35 @@
                         <th scope="col">nama psikolog</th>
                         <th scope="col">jenis konsultasi</th>
                         <th scope="col">keluhan</th>
-                        <th scope="col">Tingkat keluhan</th>
+                        <th scope="col">Tingkat Permasalahan</th>
                         <th scope="col">tanggal</th>
                         <th scope="col">catatan mahasiswa</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($hasilKonsultasi as $index => $data )
                     <tr>
-                        <td>1</td>
-                        <td>DR.Gacoan</td>
-                        <td>online</td>
-                        <td>stress</td>
-                        <td><span class="badge text-bg-danger">urgent</span></td>
-                        <td>20-10-2022</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure at error sed deleniti. Ipsa sapiente, architecto similique voluptates labore numquam deleniti dicta porro quibusdam iste accusamus nobis, dignissimos eos quam!</td>
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ $data->psikolog->nama_psikolog }}</td>
+                        <td>{{ $data->janjiTemu->jenis_konsultasi }}</td>
+                        <td>{{ $data->janjiTemu->keluhan_umum }}</td>
+                        <td>
+                            <span class="badge @if ($data->tingkat_permasalahan == 'ringan') text-bg-success @elseif ($data->tingkat_permasalahan == 'sedang') text-bg-warning @else text-bg-danger @endif">
+                                {{ $data->tingkat_permasalahan }}
+                            </span>
+                        </td>
+                        <td>{{ $data->janjiTemu->tanggal }}</td>
+                        <td>
+                            <p>
+                                {{ $data->catatan_mahasiswa }}
+                            </p>
+                        </td>
                     </tr>
+                    @empty
+                    <tr>
+                        <td colspan="100%" class="text-center">Tidak ada data untuk ditampilkan!</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

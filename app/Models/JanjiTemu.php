@@ -19,7 +19,8 @@ class JanjiTemu extends Model
         'tanggal',
         'jam',
         'jenis_konsultasi',
-        'status,'
+        'status',
+        'keterangan',
     ];
 
     public function mahasiswa(){

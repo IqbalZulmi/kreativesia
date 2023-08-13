@@ -20,49 +20,49 @@
                     <div class="section-content d-flex">
                         <div id="stres" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Stres</p>
                             </div>
                         </div>
                         <div id="depresi" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Depresi </p>
                             </div>
                         </div>
                         <div id="adhd" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Adhd</p>
                             </div>
                         </div>
                         <div id="toxic" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Toxic Relation</p>
                             </div>
                         </div>
                         <div id="kecemasan" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-wrap align-items-center">
                                 <p class="card-text">Kecemasan</p>
                             </div>
                         </div>
                         <div id="gangguan-makanan" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Gangguan Makanan</p>
                             </div>
                         </div>
                         <div id="gangguan-tidur" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Gangguan Tidur</p>
                             </div>
                         </div>
                         <div id="ptsd" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
-                            <div class="card-body">
+                            <div class="card-body d-flex align-items-center">
                                 <p class="card-text">PTSD</p>
                             </div>
                         </div>
@@ -80,13 +80,13 @@
                     </div>
                     <div class="keterangan-box" id="keterangan-depresi">
                         <p class="mt-3" >
-                            Depresi adalah gangguan kesehatan mental yang ditandai oleh perasaan sedih yang mendalam, hilangnya minat atau kesenangan, perasaan berat atau kelelahan, dan kesulitan berkonsentrasi.                        
+                            Depresi adalah gangguan kesehatan mental yang ditandai oleh perasaan sedih yang mendalam, hilangnya minat atau kesenangan, perasaan berat atau kelelahan, dan kesulitan berkonsentrasi.
                         </p>
                         <p>
-                            Gejala awal depresi dapat mencakup tidur yang terganggu, perubahan nafsu makan, penurunan energi, dan merasa cemas atau gelisah. Perubahan mood, seperti merasa sedih atau frustrasi bahkan tentang hal-hal kecil, juga bisa menjadi tanda awal.                        
+                            Gejala awal depresi dapat mencakup tidur yang terganggu, perubahan nafsu makan, penurunan energi, dan merasa cemas atau gelisah. Perubahan mood, seperti merasa sedih atau frustrasi bahkan tentang hal-hal kecil, juga bisa menjadi tanda awal.
                         </p>
                         <p>
-                            Untuk penanganan mandiri, latihan fisik teratur dan pola makan sehat bisa membantu. Praktik mindfulness dan teknik relaksasi seperti pernapasan dalam juga bisa membantu. Namun, mencari bantuan profesional sangat disarankan jika gejala berlanjut atau memburuk.                        
+                            Untuk penanganan mandiri, latihan fisik teratur dan pola makan sehat bisa membantu. Praktik mindfulness dan teknik relaksasi seperti pernapasan dalam juga bisa membantu. Namun, mencari bantuan profesional sangat disarankan jika gejala berlanjut atau memburuk.
                         </p>
                     </div>
                     <div class="keterangan-box" id="keterangan-adhd">
@@ -155,7 +155,6 @@
                             Pada tahap awal, penanggulangan PTSD bisa dilakukan dengan melakukan teknik relaksasi, seperti meditasi atau pernapasan dalam-dalam, dan menjaga rutinitas sehari-hari. Namun, bantuan profesional sangat disarankan.
                         </p>
                     </div>
-                    
                     <a href="#psikolog" class="btn btn-lg bg-soft text-capitalize mb-3">Carikan Ahli</a>
                 </div>
                 <div class="col-lg-5 d-flex justify-content-center align-items-center order-0 order-lg-1">
@@ -167,111 +166,143 @@
     <section id="psikolog" class="min-vh-100 d-flex justify-content-center align-items-center">
         <div class="container">
             <h1 class="mx-auto text-uppercase heading">Para <span class="ms-1">Ahli</span></h1>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-gap-3 mb-3">
-                <div class="col">
-                    <div class="card mb-3 h-100">
-                        <div class="row g-0">
-                            <div class="col-4">
-                                <img src="{{ asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
-                            </div>
-                            <div class="col-8">
-                                <div class="card-body">
-                                    <p class="card-title blockquote fw-semibold">Dr. Gacoan</p>
-                                    <p class="text-body-secondary blockquote-footer fst-italic">1211100118190556</p>
-                                    <p class="card-text"><i class="fa-solid fa-graduation-cap hard-color"></i> : Universitas solo</p>
-                                    <p class="card-text"><i class="fa-solid fa-envelope hard-color"></i> : pasargede@gmail.com</p>
-                                    <div class="d-flex justify-content-end">
-                                        <button class="btn bg-hard text-light" data-bs-toggle="modal" data-bs-target="#buatJanjiModal"><i class="fa-solid fa-calendar-check"></i> Buat Janji</button>
+            @auth
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-gap-3 mb-3">
+                    @foreach ($dataPsikolog as $index => $data )
+                        <div class="col">
+                            <div class="card mb-3 h-100">
+                                <div class="row g-0">
+                                    <div class="col-4">
+                                        <i class="fa-solid fa-circle ms-2 @if ($data->status == 'online') text-success @elseif ($data->status == 'sibuk') text-warning @else text-danger @endif"></i>
+                                        <img src="{{ asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
+                                    </div>
+                                    <div class="col-8">
+                                        <div class="card-body">
+                                            <p class="card-title blockquote fw-semibold">{{ $data->nama_psikolog }}</p>
+                                            <p class="text-body-secondary blockquote-footer fst-italic">{{ $data->no_str }}</p>
+                                            <p class="card-text"><i class="fa-solid fa-graduation-cap hard-color"></i> : {{ $data->alumni }}</p>
+                                            <p class="card-text"><i class="fa-solid fa-envelope hard-color"></i> : {{ $data->email }}</p>
+                                            <div class="d-flex justify-content-end">
+                                                <button class="btn bg-hard text-light @if ($data->status != 'online') disabled @endif" data-bs-toggle="modal" data-bs-target="#buatJanjiModal{{ $index+1 }}">
+                                                    @if ($data->status == 'online')
+                                                    <i class="fa-solid fa-calendar-check"></i> Buat Janji
+                                                    @elseif ($data->status == 'sibuk')
+                                                    <i class="fa-solid fa-business-time"></i> sibuk
+                                                    @else
+                                                    <i class="fa-solid fa-power-off"></i> offline
+                                                    @endif
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    @endforeach
+                </div>
+            @else
+                <div class="row">
+                    <div class="col-12 d-flex flex-column justify-content-start align-items-center">
+                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
+                        <div class="text-content">
+                            <h2 class="text-capitalize typing-animation hard-color">silakan masuk terlebih dahulu</h2>
+                        </div>
+                        <a href="{{ route('loginPage') }}" class="btn btn-lg bg-soft">Masuk <i class="fa-solid fa-right-to-bracket"></i></a>
                     </div>
                 </div>
-            </div>
+            @endauth
         </div>
     </section>
-    <div class="modal fade" id="buatJanjiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Hapus Akun</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="" class="row">
-                        <div class="mb-3">
-                            <label for="" class="form-label">NIM</label>
-                            <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror" value="434220" required readonly>
-                            @error('nim')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">No STR</label>
-                            <input type="text" name="no_str" class="form-control @error('no_str') is-invalid @enderror" value="1155" required readonly>
-                            @error('no_str')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">keluhan umum</label>
-                            <select name="keluhan" class="form-select @error('keluhan') is-invalid @enderror" required>
-                                <option value="">Pilih Keluhan</option>
-                                <option value="Depresi">Depresi</option>
-                                <option value="Stress">Stress</option>
-                                <option value="Toxic Relation">Toxic Relation</option>
-                                <option value="Gangguan Makan">Gangguan Makan</option>
-                                <option value="Gangguan Tidur">Gangguan Tidur</option>
-                                <option value="PTSD">PTSD</option>
-                                <option value="ADHD">ADHD</option>
-                                <option value="Kecemasan">Kecemasan</option>
-                            </select>
-                            @error('keluhan')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Detail Masalah</label>
-                            <textarea name="detail" class="form-control @error('detail') is-invalid @enderror" rows="4" placeholder="Ceritakan detail masalah anda" required></textarea>
-                            @error('detail')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3 col-6">
-                            <label for="" class="form-label">Tanggal</label>
-                            <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" required>
-                            @error('tanggal')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3 col-6">
-                            <label for="" class="form-label">Jam</label>
-                            <input type="time" name="jam" class="form-control @error('jam') is-invalid @enderror" required>
-                            @error('jam')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Jenis Konsultasi</label>
-                            <select name="jenis_konsultasi" class="form-select @error('jenis_konsultasi') is-invalid @enderror" required>
-                                <option value="">Pilih Jenis Konsultasi</option>
-                                <option value="online">Online</option>
-                                <option value="offline">Offline</option>
-                            </select>
-                            @error('jenis_konsultasi')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-success">Simpan</button>
+
+@auth
+    @foreach ($dataPsikolog as $index => $data )
+        <div class="modal fade" id="buatJanjiModal{{ $index+1 }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Buat Janji</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('ajukanJanjiProcess') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">NIM</label>
+                                    <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror" value="{{ Auth::user()->mahasiswa->nim }}" required readonly>
+                                    @error('nim')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">No STR</label>
+                                    <input type="text" name="no_str" class="form-control @error('no_str') is-invalid @enderror" value="{{ $data->no_str }}" required readonly>
+                                    @error('no_str')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">keluhan umum</label>
+                                    <select name="keluhan_umum" class="form-select @error('keluhan_umum') is-invalid @enderror" required>
+                                        <option value="">Pilih Keluhan</option>
+                                        <option value="Depresi">Depresi</option>
+                                        <option value="Stress">Stress</option>
+                                        <option value="Toxic Relation">Toxic Relation</option>
+                                        <option value="Gangguan Makan">Gangguan Makan</option>
+                                        <option value="Gangguan Tidur">Gangguan Tidur</option>
+                                        <option value="PTSD">PTSD</option>
+                                        <option value="ADHD">ADHD</option>
+                                        <option value="Kecemasan">Kecemasan</option>
+                                    </select>
+                                    @error('keluhan_umum')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Detail Masalah</label>
+                                    <textarea name="detail_masalah" class="form-control @error('detail_masalah') is-invalid @enderror" rows="4" placeholder="Ceritakan detail masalah anda" required>{{ old('detail_masalah') }}</textarea>
+                                    @error('detail_masalah')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="" class="form-label">Tanggal</label>
+                                    <input type="date" name="tanggal" class="form-control @error('tanggal') is-invalid @enderror" value="{{ old('tanggal') }}" required>
+                                    @error('tanggal')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3 col-6">
+                                    <label for="" class="form-label">Jam</label>
+                                    <input type="time" name="jam" class="form-control @error('jam') is-invalid @enderror" value="{{ old('jam') }}" required>
+                                    @error('jam')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Jenis Konsultasi</label>
+                                    <select name="jenis_konsultasi" class="form-select @error('jenis_konsultasi') is-invalid @enderror" required>
+                                        <option value="">Pilih Jenis Konsultasi</option>
+                                        <option value="online">Online</option>
+                                        <option value="offline">Offline</option>
+                                    </select>
+                                    @error('jenis_konsultasi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                    </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-success">Simpan</button>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
+@endauth
+
 @endsection
 
 @push('js')
@@ -279,8 +310,8 @@
     <script>
         $('.section-content').slick({
             infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: 3,
+            slidesToScroll: 3,
             prevArrow: '<button type="button" class="slick-prev"><i class="fa-solid fa-circle-chevron-left"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="fa-solid fa-circle-chevron-right"></i></button>',
             mobileFirst: true,
@@ -297,14 +328,14 @@
         });
         const keteranganStres = document.getElementById('keterangan-stres');
         keteranganStres.style.display = 'block';
-        
+
         cardsContainer.addEventListener('click', (event) => {
             const clickedCard = event.target.closest('.card');
             if (!clickedCard) return;
             keteranganBoxes.forEach((box) => {
                 box.style.display = 'none';
             });
-            
+
             const cardId = clickedCard.id;
             const keteranganBox = document.getElementById(`keterangan-${cardId}`);
             if (keteranganBox) {
@@ -313,4 +344,7 @@
         });
     </script>
 
+    <script>
+
+    </script>
 @endpush

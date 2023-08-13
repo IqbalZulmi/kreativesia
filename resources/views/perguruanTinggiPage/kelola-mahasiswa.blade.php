@@ -20,31 +20,35 @@
                         <th scope="col">alamat</th>
                         <th scope="col">email</th>
                         <th scope="col">jenis kelamin</th>
-                        <th scope="col">jurusan</th>
-                        <th scope="col">prodi</th>
+                        <th scope="col">Fakultas</th>
                         <th scope="col">aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @forelse ($dataMahasiswa as $index => $data)
                     <tr>
-                        <td>1</td>
-                        <td>iqbal410</td>
-                        <td>4342201050</td>
-                        <td>iqbal</td>
-                        <td>Kepulauan riau</td>
-                        <td>iqbal@gmail.com</td>
-                        <td>pria</td>
-                        <td>TI</td>
-                        <td>TI</td>
+                        <td>{{ $index+1 }}</td>
+                        <td>{{ $data->akunMahasiswa->username }}</td>
+                        <td>{{ $data->nim }}</td>
+                        <td>{{ $data->nama_mahasiswa }}</td>
+                        <td>{{ $data->alamat }}</td>
+                        <td>{{ $data->email }}</td>
+                        <td>{{ $data->jenis_kelamin }}</td>
+                        <td>{{ $data->fakultas->fakultas }}</td>
                         <td>
-                            <button class="btn bg-soft text-capitalize" data-bs-toggle="modal" data-bs-target="#editModal">
+                            <button class="btn bg-soft text-capitalize" data-bs-toggle="modal" data-bs-target="#editModal{{ $index+1 }}">
                                 edit <i class="fa-regular fa-pen-to-square text-light"></i>
                             </button>
-                            <button class="btn bg-soft text-capitalize" data-bs-toggle="modal" data-bs-target="#hapusModal">
+                            <button class="btn bg-soft text-capitalize" data-bs-toggle="modal" data-bs-target="#hapusModal{{ $data->nim }}">
                                 hapus <i class="fa-solid fa-trash text-light"></i>
                             </button>
                         </td>
                     </tr>
+                    @empty
+                    <tr>
+                        <td colspan="100%" class="text-center">Tidak Ada Data untuk ditampilkan!</td>
+                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -59,192 +63,190 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="container-fluid">
-                    <form action="" class="row">
-                        <div class="mb-3 col-6">
-                            <label for="" class="form-label">Username</label>
-                            <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" required>
-                            @error('username')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                <form action="{{ route('tambahMahasiswa') }}" method="post">
+                    @csrf
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="mb-3 col-6">
+                                <label for="" class="form-label">Username</label>
+                                <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" value="{{ old('username') }}" required>
+                                @error('username')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="" class="form-label">Password</label>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="masukkan password" value="{{ old('password') }}" required>
+                                @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">NIM</label>
+                                <input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" placeholder="nim mahasiswa" value="{{ old('nim') }}" required>
+                                @error('nim')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nama</label>
+                                <input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" placeholder="Nama mahasiswa" value="{{ old('nama_mahasiswa') }}" required>
+                                @error('nama_mahasiswa')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Alamat</label>
+                                <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" placeholder="Alamat Mahasiswa" value="{{ old('alamat') }}" required>
+                                @error('alamat')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Mahasiswa" value="{{ old('email') }}" required>
+                                @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Jenis kelamin</label>
+                                <select class="form-select @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required>
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="pria">pria</option>
+                                    <option value="wanita">wanita</option>
+                                </select>
+                                @error('jenis_kelamin')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">fakultas</label>
+                                <select class="form-select @error('fakultas') is-invalid @enderror" name="fakultas" required>
+                                    <option value="">Pilih fakultas</option>
+                                    @foreach ($dataFakultas as $index => $data)
+                                    <option value="{{ $data->id_fakultas }}">{{ $data->fakultas }}</option>
+                                    @endforeach
+                                </select>
+                                @error('fakultas')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="mb-3 col-6">
-                            <label for="" class="form-label">Password</label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="masukkan password" required>
-                            @error('password')
+                    </div>
+            </div>
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@foreach ($dataMahasiswa as $index => $data)
+    <div class="modal fade" id="editModal{{ $index+1 }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Akun</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('editMahasiswa',['id_user' => $data->id_user]) }}" method="POST">
+                        @csrf @method('put')
+                        <input type="hidden"  name="old_username"  value="{{ $data->akunMahasiswa->username }}">
+                        <input type="hidden" name="old_email" value="{{ $data->email }}">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Username</label>
+                            <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" value="{{ old('username',$data->akunMahasiswa->username) }}" required>
+                            @error('username')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">NIM</label>
-                            <input class="form-control @error('nim') is-invalid @enderror" name="nim" placeholder="nim mahasiswa" required>
+                            <input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" placeholder="nim mahasiswa" value="{{ old('nim',$data->nim) }}" required>
                             @error('nim')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Nama</label>
-                            <input class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Nama mahasiswa" required>
-                            @error('nama')
+                            <input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" placeholder="Nama mahasiswa" value="{{ old('nama_mahasiswa',$data->nama_mahasiswa) }}" required>
+                            @error('nama_mahasiswa')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Alamat</label>
-                            <input class="form-control @error('alamat') is-invalid @enderror" name="alamat" placeholder="Alamat Mahasiswa" required>
+                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" placeholder="Alamat Mahasiswa" value="{{ old('alamat',$data->alamat) }}" required>
                             @error('alamat')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Email</label>
-                            <input class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Mahasiswa" required>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Mahasiswa" value="{{ old('email',$data->email) }}" required>
                             @error('email')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Jenis kelamin</label>
-                            <select class="form-select @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin"required>
+                            <select class="form-select @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin" required>
                                 <option value="">Pilih Jenis Kelamin</option>
-                                <option value="pria">pria</option>
-                                <option value="wanita">wanita</option>
+                                <option value="pria" @if ($data->jenis_kelamin == 'pria') selected @endif>pria</option>
+                                <option value="wanita" @if ($data->jenis_kelamin == 'wanita') selected @endif>wanita</option>
                             </select>
                             @error('jenis_kelamin')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Jurusan</label>
-                            <select class="form-select @error('jurusan') is-invalid @enderror" name="jurusan" required>
-                                <option value="">Pilih Jurusan</option>
-                                <option value="Teknik informatika">Teknik Informatika</option>
-                                <option value="Teknik elektro">Teknik Elektro</option>
-                                <option value="Teknik mesin">Teknik Mesin</option>
-                                <option value="Manajemen bisnis">Manajemen Bisnis</option>
+                            <label for="" class="form-label">fakultas</label>
+                            <select class="form-select @error('fakultas') is-invalid @enderror" name="fakultas" required>
+                                <option value="">Pilih fakultas</option>
+                                @foreach ($dataFakultas as $index => $data1)
+                                    <option value="{{ $data1->id_fakultas }}" @if ($data1->id_fakultas == $data->id_fakultas) selected @endif>{{ $data1->fakultas }}</option>
+                                @endforeach
                             </select>
-                            @error('jurusan')
+                            @error('fakultas')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Prodi</label>
-                            <input class="form-control @error('prodi') is-invalid @enderror" name="prodi" placeholder="Prodi Mahasiswa" required>
-                            @error('prodi')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+                    </div>
+                <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-success">Simpan</button>
                     </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-success">Simpan</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="hapusModal{{ $data->nim }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hapus Akun</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-capitalize">apakah anda yakin ingin menghapus akun dengan username <span class="fw-bold">{{ $data->akunMahasiswa->username }}</span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                    <form action="{{ route('hapusMahasiswa',['id_user' => $data->id_user]) }}" method="post">
+                        @csrf @method('delete')
+                        <button type="submit" class="btn btn-success">hapus</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Akun</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="mb-3">
-                        <label for="" class="form-label">Username</label>
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="masukkan username" required>
-                        @error('username')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">NIM</label>
-                        <input class="form-control @error('nim') is-invalid @enderror" name="nim" placeholder="nim mahasiswa" required>
-                        @error('nim')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Nama</label>
-                        <input class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="Nama mahasiswa" required>
-                        @error('nama')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Alamat</label>
-                        <input class="form-control @error('alamat') is-invalid @enderror" name="alamat" placeholder="Alamat Mahasiswa" required>
-                        @error('alamat')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Email</label>
-                        <input class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email Mahasiswa" required>
-                        @error('email')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Jenis kelamin</label>
-                        <select class="form-select @error('jenis_kelamin') is-invalid @enderror" name="jenis_kelamin"required>
-                            <option value="">Pilih Jenis Kelamin</option>
-                            <option value="pria">pria</option>
-                            <option value="wanita">wanita</option>
-                        </select>
-                        @error('jenis_kelamin')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Jurusan</label>
-                        <select class="form-select @error('jurusan') is-invalid @enderror" name="jurusan" required>
-                            <option value="">Pilih Jurusan</option>
-                            <option value="Teknik informatika">Teknik Informatika</option>
-                            <option value="Teknik elektro">Teknik Elektro</option>
-                            <option value="Teknik mesin">Teknik Mesin</option>
-                            <option value="Manajemen bisnis">Manajemen Bisnis</option>
-                        </select>
-                        @error('jurusan')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">Prodi</label>
-                        <input class="form-control @error('prodi') is-invalid @enderror" name="prodi" placeholder="Prodi Mahasiswa" required>
-                        @error('prodi')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-success">Simpan</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Hapus Akun</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p class="text-capitalize">apakah anda yakin ingin menghapus akun dengan username <span class="fw-bold">iqbal</span>?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-success">Simpan</button>
-            </div>
-        </div>
-    </div>
-</div>
+@endforeach
+
 @endsection
 
 @push('js')

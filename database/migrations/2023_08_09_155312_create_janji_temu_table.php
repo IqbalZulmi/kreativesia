@@ -23,6 +23,7 @@ return new class extends Migration
             $table->time('jam');
             $table->enum('jenis_konsultasi', ['online','offline'])->default('online');
             $table->enum('status', ['menunggu','diterima', 'diterima,jadwal telah diatur ulang', 'selesai'])->default('menunggu');
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }

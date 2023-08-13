@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\JanjiTemuController;
 use App\Http\Controllers\LaporanKonsulController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PasienController;
@@ -42,30 +44,102 @@ Route::get('/layanan', ([LayananController::class,'showLayananPage']))
 ->name('layananPage');
 
 Route::middleware(CekRole::class . ':mahasiswa')->group(function(){
+    Route::post('/layanan/ajukan-janji', ([JanjiTemuController::class,'ajukanJanjiProcess']))
+    ->name('ajukanJanjiProcess');
+
     Route::get('/riwayat-konsultasi', ([RiwayatKonsulController::class,'showRiwayatKonsulPage']))
     ->name('riwayatKonsulPage');
 
     Route::get('/hasil-konsultasi', ([LaporanKonsulController::class,'showHasilKonsultasiMahasiswaPage']))
     ->name('hasilKonsultasiPage');
+
+    Route::get('/profile-mahasiswa', ([MahasiswaController::class,'showProfilePage']))
+    ->name('showProfileMahasiswaPage');
+
+    Route::put('/profile-mahasiswa/{id_user}', ([MahasiswaController::class,'updateProfile']))
+    ->name('updateProfileMahasiswa');
 });
 
 Route::middleware(CekRole::class . ':psikolog')->group(function(){
+    Route::get('/profile-psikolog', ([PsikologController::class,'showProfilePage']))
+    ->name('showProfilePsikologPage');
+
+    Route::put('/profile-psikolog/{id_user}', ([PsikologController::class,'updateProfile']))
+    ->name('updateProfilePsikolog');
+
     Route::get('/pasien', ([PasienController::class,'showPasienPage']))
     ->name('pasienPage');
 
+    Route::put('/pasien/terima/{id_janji_temu}', ([JanjiTemuController::class,'terimaJanjiTemu']))
+    ->name('terimaPasienProcess');
+
+    Route::put('/pasien/reschedule/{id_janji_temu}', ([JanjiTemuController::class,'rescheduleJanjiTemu']))
+    ->name('rescheduleProcess');
+
+    Route::put('/pasien/selesai/{id_janji_temu}', ([JanjiTemuController::class,'updateStatusSelesai']))
+    ->name('pasienUpdateSelesai');
+
     Route::get('/laporan-konsultasi', ([LaporanKonsulController::class,'showLaporanPsikologPage']))
     ->name('laporanPsikologPage');
+
+    Route::post('/laporan-konsultasi/tambah', ([LaporanKonsulController::class,'tambahLaporan']))
+    ->name('tambahLaporan');
+
+    Route::put('/laporan-konsultasi/edit/{id_laporan_konsultasi}', ([LaporanKonsulController::class,'editLaporan']))
+    ->name('editLaporan');
+
+    Route::get('/update-status/{jenis_status}', ([PsikologController::class,'updateStatus']))
+    ->name('updateStatusPsikolog');
 });
 
 Route::middleware(CekRole::class . ':perguruan tinggi')->group(function(){
+    Route::get('/profile-perguruan-tinggi', ([PerguruanTinggiController::class,'showProfilePage']))
+    ->name('showProfilePerguruanPage');
+
+    Route::put('/profile-perguruan-tinggi/{id_user}', ([PerguruanTinggiController::class,'updateProfile']))
+    ->name('updateProfilePerguruan');
+
     Route::get('/hasil-laporan-psikolog', ([LaporanKonsulController::class,'showHasilLaporanPsikologPage']))
     ->name('hasilLaporanPsikologPage');
+
+    Route::post('/hasil-laporan-psikolog/chart', ([LaporanKonsulController::class,'showStatistik']))
+    ->name('showChart');
 
     Route::get('/kelola-mahasiswa', ([MahasiswaController::class,'showKelolaPage']))
     ->name('kelolaMahasiswaPage');
 
+    Route::post('/kelola-mahasiswa/tambah', ([MahasiswaController::class,'tambahMahasiswa']))
+    ->name('tambahMahasiswa');
+
+    Route::put('/kelola-mahasiswa/edit/{id_user}', ([MahasiswaController::class,'editMahasiswa']))
+    ->name('editMahasiswa');
+
+    Route::delete('/kelola-mahasiswa/hapus/{id_user}', ([MahasiswaController::class,'hapusMahasiswa']))
+    ->name('hapusMahasiswa');
+
     Route::get('/kelola-psikolog', ([PsikologController::class,'showKelolaPage']))
     ->name('kelolaPsikologPage');
+
+    Route::post('/kelola-psikolog/tambah', ([PsikologController::class,'tambahPsikolog']))
+    ->name('tambahPsikolog');
+
+    Route::put('/kelola-psikolog/edit/{id_user}', ([PsikologController::class,'editPsikolog']))
+    ->name('editPsikolog');
+
+    Route::delete('/kelola-psikolog/hapus/{id_user}', ([PsikologController::class,'hapusPsikolog']))
+    ->name('hapusPsikolog');
+
+    Route::get('/kelola-fakultas', ([FakultasController::class,'showKelolaPage']))
+    ->name('kelolaFakultasPage');
+
+    Route::post('/kelola-fakultas/tambah', ([FakultasController::class,'tambahFakultas']))
+    ->name('tambahFakultas');
+
+    Route::put('/kelola-fakultas/edit/{id_fakultas}', ([FakultasController::class,'editFakultas']))
+    ->name('editFakultas');
+
+    Route::delete('/kelola-fakultas/hapus/{id_fakultas}', ([FakultasController::class,'hapusFakultas']))
+    ->name('hapusFakultas');
 
 });
 
@@ -73,13 +147,13 @@ Route::middleware(CekRole::class . ':superadmin')->group(function(){
     Route::get('/kelola-perguruan-tinggi', ([PerguruanTinggiController::class,'showKelolaPage']))
     ->name('kelolaPerguruanPage');
 
-    Route::post('/tambah-perguruan-tinggi', ([PerguruanTinggiController::class,'tambahPerguruan']))
+    Route::post('/kelola-perguruan-tinggi/tambah', ([PerguruanTinggiController::class,'tambahPerguruan']))
     ->name('tambahPerguruanTinggi');
 
-    Route::put('/edit-perguruan-tinggi/{id_user}', ([PerguruanTinggiController::class,'editPerguruan']))
+    Route::put('/kelola-perguruan-tinggi/edit/{id_user}', ([PerguruanTinggiController::class,'editPerguruan']))
     ->name('editPerguruanTinggi');
 
-    Route::delete('/hapus-perguruan-tinggi/{id_user}', ([PerguruanTinggiController::class,'hapusPerguruan']))
+    Route::delete('/kelola-perguruan-tinggi/hapus/{id_user}', ([PerguruanTinggiController::class,'hapusPerguruan']))
     ->name('hapusPerguruanTinggi');
 });
 

@@ -17,7 +17,7 @@ class Fakultas extends Model
     ];
 
     public function mahasiswa(){
-        return $this->hasMany(Mahasiswa::class,'id_jurusan/fakultas');
+        return $this->hasMany(Mahasiswa::class,'id_fakultas');
     }
 
     public function perguruanTinggi(){

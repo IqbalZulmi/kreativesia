@@ -15,14 +15,14 @@
             @csrf
             <div class="form-group mb-3">
                 <label for="email">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukan username Anda" required>
+                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukan username Anda" value="{{ old('username') }}" required autofocus>
                 @error('username')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
                 <label for="password">Kata Sandi</label>
-                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Kata Sandi Anda" required>
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Kata Sandi Anda" value="{{ old('password') }}" required>
                 @error('password')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

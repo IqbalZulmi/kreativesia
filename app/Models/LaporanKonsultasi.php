@@ -16,6 +16,7 @@ class LaporanKonsultasi extends Model
         'kode_pt',
         'no_str',
         'id_janji_temu',
+        'laporan_perguruan_tinggi',
         'catatan_mahasiswa',
         'tingkat_permasalahan',
     ];

@@ -50,12 +50,46 @@ class DatabaseSeeder extends Seeder
             'role' => 'psikolog',
         ]);
 
+        $akunPsikolog1 = User::create([
+            'username' => 'psikolog1',
+            'password' => Hash::make('1'),
+            'role' => 'psikolog',
+        ]);
+
+        $akunPsikolog2 = User::create([
+            'username' => 'psikolog2',
+            'password' => Hash::make('1'),
+            'role' => 'psikolog',
+        ]);
+
         $psikolog = Psikolog::create([
             'no_str' => '11111',
             'id_user' => $akunPsikolog->id_user,
             'kode_pt' => 'PT01',
             'nama_psikolog' => 'Dr. Ahmad',
             'email' => 'ahmad@gmail.com',
+            'alumni' => 'Universitas Gajah Mada',
+            'status' => 'online',
+            'no_telp' => '0888888',
+        ]);
+
+        $psikolog1 = Psikolog::create([
+            'no_str' => '1232',
+            'id_user' => $akunPsikolog1->id_user,
+            'kode_pt' => 'PT01',
+            'nama_psikolog' => 'Dr. alfa',
+            'email' => 'alfa@gmail.com',
+            'alumni' => 'Universitas Gajah Mada',
+            'status' => 'sibuk',
+            'no_telp' => '0888888',
+        ]);
+
+        $psikolog2 = Psikolog::create([
+            'no_str' => '4214',
+            'id_user' => $akunPsikolog2->id_user,
+            'kode_pt' => 'PT01',
+            'nama_psikolog' => 'Dr. hadi',
+            'email' => 'hadi@gmail.com',
             'alumni' => 'Universitas Gajah Mada',
             'status' => 'offline',
             'no_telp' => '0888888',

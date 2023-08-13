@@ -12,7 +12,6 @@
 }
 
 .section-warm-bg-color{
-    z-index: -1;
     background-color: var(--warm-background-color);
 }
 
@@ -111,6 +110,10 @@
     min-height: 47vh;
 }
 
+.footer img{
+    height: 45px;
+}
+
 .jump-to-top {
     display: none;
     position: fixed;
@@ -155,4 +158,10 @@
 div.dt-buttons.btn-group.flex-wrap button{
     background-color: var(--hard-color);
     border: var(--hard-color);
+}
+
+@media (min-width: 768px) {
+    .footer img{
+        height: 70px;
+    }
 }

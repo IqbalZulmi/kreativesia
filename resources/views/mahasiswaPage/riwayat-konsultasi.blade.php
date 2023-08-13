@@ -5,37 +5,46 @@
         <div class="container">
             <h2 class="text-capitalize hard-color py-3">Data Riwayat Konsultasi</h2>
             <div class="table-responsive">
-                <table class="table table-striped table-hover border table-bordered text-center">
+                <table class="table table-striped table-hover border table-bordered text-center align-middle">
                     <thead class="text-capitalize">
                         <tr>
                             <th scope="col">no</th>
+                            <th scope="col">nama psikolog</th>
                             <th scope="col">jenis konsultasi</th>
                             <th scope="col">keluhan</th>
-                            <th scope="col">nama psikolog</th>
-                            <th scope="col">tanggal</th>
+                            <th scope="col">tanggal janji</th>
+                            <th scope="col">jam janji</th>
                             <th scope="col">status</th>
                             <th scope="col">keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($dataRiwayat as $index => $data )
                         <tr>
-                            <td>1</td>
-                            <td>online</td>
-                            <td>stress</td>
-                            <td>Dr.Gacoan</td>
-                            <td>20-10-2022</td>
-                            <td>diterima</td>
-                            <td>-</td>
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ $data->psikolog->nama_psikolog }}</td>
+                            <td>{{ $data->jenis_konsultasi }}</td>
+                            <td>{{ $data->keluhan_umum }}</td>
+                            <td>{{ $data->tanggal }}</td>
+                            <td>{{ $data->jam }}</td>
+                            <td>
+                                <span class="badge text-capitalize @if ($data->status == 'menunggu')text-bg-primary @elseif ($data->status == 'diterima') text-bg-success @elseif ($data->status == 'selesai') text-bg-secondary @else text-bg-warning @endif ">
+                                    {{ $data->status }}
+                                </span>
+                            </td>
+                            <td>
+                                @if ($data->keterangan == null)
+                                    -
+                                @else
+                                    {{ $data->keterangan }}
+                                @endif
+                            </td>
                         </tr>
+                        @empty
                         <tr>
-                            <td>2</td>
-                            <td>online</td>
-                            <td>stress</td>
-                            <td>Dr.Gacoan</td>
-                            <td>20-10-2022</td>
-                            <td>atur ulang jadwal</td>
-                            <td>ketersediaan saya pada tanggal 21</td>
+                            <td colspan="100%">Tidak Ada untuk Ditampilkan!</td>
                         </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
@@ -48,6 +57,7 @@
         $('.table').DataTable({
             info: false,
             dom: '<"row"<"col-sm-6 d-flex justify-content-center justify-content-sm-start mb-2 mb-sm-0"l><"col-sm-6 d-flex justify-content-center justify-content-sm-end"f>>rtp',
+            autoWidth: false,
         });
     </script>
 @endpush

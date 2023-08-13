@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="row text-white px-3 py-4">
             <div class="col-12 text-center text-lg-start" data-aos="fade-right" data-aos-duration="500">
-                <img class="image-fluid" width="auto" height="100" src="http://www.polibatam.ac.id/wp-content/uploads/2022/02/Logo-Polibatam-white-300x273-1.png">
-                <span class="h1 fw-bold pt-5">Halodek</span>
+                <img class="object-fit-cover" src="{{ asset('web-assets/image/logo-footer.png') }}">
+                {{-- <span class="h1 fw-bold pt-5">Halodek</span> --}}
                 <p class="mt-2"><strong>Alamat</strong> : Jl. Ahmad Yani Batam Kota. Kota Batam. kepulauan Riau. Indonesia</p>
                 <hr class="border-dark">
             </div>

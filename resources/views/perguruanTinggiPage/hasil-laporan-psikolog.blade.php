@@ -17,31 +17,38 @@
                             <th scope="col">jenis konsultasi</th>
                             <th scope="col">keluhan</th>
                             <th scope="col">tanggal</th>
-                            <th scope="col">jurusan</th>
+                            <th scope="col">fakultas</th>
                             <th scope="col">deskripsi laporan</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($hasilLaporan as $index => $data )
                         <tr>
-                            <td>1</td>
-                            <td>Dr. Gacoan</td>
-                            <td>online</td>
-                            <td>stress</td>
-                            <td>20/10/2022</td>
-                            <td>Teknik Informatika</td>
+                            <td>{{ $index+1 }}</td>
+                            <td>{{ $data->psikolog->nama_psikolog }}</td>
+                            <td>{{ $data->janjiTemu->jenis_konsultasi }}</td>
+                            <td>{{ $data->janjiTemu->keluhan_umum }}</td>
+                            <td>{{ $data->janjiTemu->tanggal }}</td>
+                            <td>{{ $data->mahasiswa->fakultas->fakultas }}</td>
                             <td>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate corrupti tenetur quod cumque, quidem inventore odit laboriosam excepturi amet? Doloremque voluptatem voluptate possimus necessitatibus perferendis iste voluptas impedit illo dicta!
+                                    {{ $data->laporan_perguruan_tinggi }}
                                 </p>
                             </td>
                         </tr>
+                        @empty
+                        <tr>
+                            <td colspan="100%" class="text-center">Tidak ada data untuk ditampilkan!</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
             <div class="row">
                 <h1 class="border-dark border-2 border-bottom pb-2 my-3 text-capitalize">statistik riwayat konsultasi mahasiswa</h1>
             </div>
-            <form class="row row-cols-1 row-cols-sm-3">
+            <form action="{{ route('showChart') }}" method="POST" class="row row-cols-1 row-cols-sm-3">
+                @csrf
                 <div class="col">
                     <div class="form-floating my-3" data-aos="fade-up" data-aos-duration="500">
                         <select class="form-select" name="tahun" required>
@@ -73,11 +80,13 @@
                     <button type="submit" class="btn bg-soft">lihat statistik</button>
                 </div>
             </form>
+            @if (session('labels'))
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="chart">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection
@@ -112,18 +121,20 @@
             });
         });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['TI', 'TM', 'AB', 'TE'],
+                labels: @json(session('labels', [])),
                 datasets: [
                     {
                         label: 'Pria',
-                        data: [2,2,2,3,4,5,6],
+                        data: @json(session('dataPria', [])),
                         backgroundColor: 'rgba(255, 205, 86, 0.3)',
                         borderColor: 'rgb(255, 205, 86)',
                         borderWidth: 1,
@@ -131,8 +142,8 @@
                         hoverBorderWidth:2,
                     },
                     {
-                        label: 'wanita',
-                        data: [2, 1,3,4,5,6],
+                        label: 'Wanita',
+                        data: @json(session('dataWanita', [])),
                         backgroundColor: 'rgba(66, 186, 150, 0.3)',
                         borderColor: 'rgb(82, 235, 186)',
                         borderWidth: 1,

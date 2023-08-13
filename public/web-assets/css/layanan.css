@@ -24,7 +24,7 @@
 
 .min-vh-100 .container .row .col-lg-7 .section-content .card{
     width: 105px;
-    height: 140px;
+    min-height: 165px;
     box-shadow: 0 0 3px var(--shadow-color);
     margin-right: 15px;
 }
@@ -34,17 +34,12 @@
     height: 54px;
 }
 
-.min-vh-100 .container .row .col-lg-7 .section-content .card .card-text{
-    min-width: 180px;
-    
-}
-
-.min-vh-100 .container .row .col-lg-7 .btn{
+.min-vh-100 .container .row .col-lg-7 .btn.btn-lg{
     box-shadow: 0px 5px 0px var(--hard-color);
     transition: box-shadow 0.3s ease-in
 }
 
-.min-vh-100 .container .row .col-lg-7 .btn:hover{
+.min-vh-100 .container .row .col-lg-7 .btn.btn-lg:hover{
     box-shadow: 0px 7px 0px var(--hard-color);
 }
 
@@ -106,7 +101,42 @@
 }
 
 .card.btn:hover{
-    background-color: var(--background-color);   
+    background-color: var(--background-color);
     box-shadow: 0 0 7px var(--shadow-color);
 }
+
+.text-content{
+    width: fit-content;
+}
+
+.typing-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid #000; /* Pilih warna border dan ukuran yang sesuai */
+    animation: typing 15s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0%, 100% {
+        width: 0;
+    }
+    10%, 90% {
+        width: 100%;
+    }
+    20%, 80% {
+        width: 100%;
+        animation-timing-function: steps(40, end);
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #000;
+    }
+}
+
+
 

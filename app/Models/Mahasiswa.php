@@ -31,7 +31,7 @@ class Mahasiswa extends Model
         return $this->belongsTo(User::class,'id_user');
     }
 
-    public function jurusan(){
+    public function fakultas(){
         return $this->belongsTo(Fakultas::class,'id_fakultas');
     }
 

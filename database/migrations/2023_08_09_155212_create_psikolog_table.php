@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('alumni');
             $table->enum('status',['offline', 'online', 'sibuk'])->default('offline');
-            $table->bigInteger('no_telp');
+            $table->string('no_telp');
             $table->string('foto')->nullable();
             $table->timestamps();
         });
