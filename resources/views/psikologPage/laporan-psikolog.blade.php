@@ -79,7 +79,9 @@
                         <select name="id_janji_temu" class="form-control @error('id_janji_temu') is-invalid @enderror" required>
                             <option value="">Pilih id</option>
                             @foreach ($idJanjiTemu as $index => $data )
-                            <option value="{{ $data->id_janji_temu }}">{{ $data->id_janji_temu }}</option>
+                                @if (!$laporanKonsul->contains('id_janji_temu', $data->id_janji_temu))
+                                    <option value="{{ $data->id_janji_temu }}">{{ $data->id_janji_temu }}</option>
+                                @endif
                             @endforeach
                         </select>
                         @error('id_janji_temu')
