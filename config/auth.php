@@ -65,10 +65,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'mahasiswa' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Mahasiswa::class,
+        ],
+
+        'psikolog' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Psikolog::class,
+        ],
     ],
 
     /*
@@ -93,6 +98,20 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'mahasiswa' => [
+            'provider' => 'mahasiswa',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        
+        'psikolog' => [
+            'provider' => 'psikolog',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

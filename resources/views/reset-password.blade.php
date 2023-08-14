@@ -12,27 +12,34 @@
 <body class="min-vh-100 header finisher-header d-flex justify-content-center align-items-center">
     <div class="login-form card">
         <img src="{{ asset('web-assets/image/logo-icon.png') }}" alt="" class="img-fluid object-fit-cover mb-3">
-        <form action="{{ route('loginProcess') }}" method="POST">
+        <h4 class="text-center mb-3">Lupa kata sandi?</h4>
+        <form action="{{ route('password.update') }}" method="POST">
             @csrf
+            <input type="text" name="broker" hidden value="{{ $broker }}" readonly>
+            <input type="text" name="token" hidden value="{{ $token }}" readonly>
             <div class="form-group mb-3">
-                <label for="email">Username</label>
-                <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" placeholder="Masukan username Anda" value="{{ old('username') }}" required autofocus>
-                @error('username')
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan email Anda" value="{{ old('email',$email) }}" required readonly>
+                @error('email')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group mb-3">
-                <label for="password">Kata Sandi</label>
-                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Kata Sandi Anda" value="{{ old('password') }}" required>
+                <label for="password">Kata Sandi Baru</label>
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Masukan Kata Sandi Baru" value="{{ old('password') }}" required autofocus>
                 @error('password')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <div class="login-forgot-password mb-3">
-                <a href="{{ route('password.request') }}" class="text-dark"> Lupa Kata Sandi ?</a>
+            <div class="form-group mb-3">
+                <label for="password_confirmation">Ulangi Kata Sandi</label>
+                <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Ulangi Kata Sandi Anda" value="{{ old('password_confirmation') }}" required>
+                @error('password_confirmation')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="d-grid gap-2">
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn">Reset Kata Sandi</button>
             </div>
         </form>
     </div>

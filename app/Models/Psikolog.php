@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
-class Psikolog extends Model
+class Psikolog extends Model implements CanResetPasswordContract
 {
-    use HasFactory;
+    use HasFactory, Notifiable, CanResetPassword;
 
     protected $table = 'psikolog';
     protected $primaryKey = 'no_str';

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FakultasController;
@@ -35,6 +36,13 @@ Route::middleware('guest')->group(function(){
     Route::post('/proses-login', ([AuthController::class, 'loginProcess']))
     ->name('loginProcess');
 
+    Route::get('/forgot-password', [ForgotPasswordController::class,'showForm'])->name('password.request');
+
+    Route::post('/forgot-password', [ForgotPasswordController::class,'sendEmail'])->name('password.email');
+
+    Route::get('/reset-password/{token}', [ForgotPasswordController::class,'showResetForm'])->name('password.reset');
+
+    Route::post('/reset-password', [ForgotPasswordController::class,'reset'])->name('password.update');
 });
 
 Route::get('/logout', ([AuthController::class, 'logout']))
