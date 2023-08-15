@@ -13,7 +13,7 @@ class PsikologController extends Controller
     public function showKelolaPage(){
         $kode_pt = Auth::user()->perguruanTinggi->kode_pt;
 
-        $psikolog = Psikolog::where('kode_pt', $kode_pt)->get();
+        $psikolog = Psikolog::where('kode_pt', $kode_pt)->latest()->get();
         return view('perguruanTinggiPage.kelola-psikolog',[
             'dataPsikolog' => $psikolog,
         ]);
@@ -23,7 +23,7 @@ class PsikologController extends Controller
         $validateData = $request->validate([
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
-            'no_str' => 'required|numeric',
+            'no_str' => 'required|numeric|unique:psikolog,no_str',
             'nama_psikolog' => 'required',
             'alumni' => 'required',
             'email' => 'required|unique:psikolog,email|email:dns',
@@ -35,6 +35,7 @@ class PsikologController extends Controller
             'password.min' => 'Password minimal 8 karakter.',
             'no_str.required' => 'Nomor STR harus diisi.',
             'no_str.numeric' => 'Nomor STR harus berupa angka.',
+            'no_str.unique' => 'Nomor STR telah digunakan.',
             'nama_psikolog.required' => 'Nama psikolog harus diisi.',
             'alumni.required' => 'Alumni harus diisi.',
             'email.required' => 'Email harus diisi.',
@@ -76,7 +77,7 @@ class PsikologController extends Controller
     public function editPsikolog(Request $request,$id_user){
         $validateData = $request->validate([
             'username' => 'required|unique:users,username,' . $request->old_username . ',username',
-            'no_str' => 'required|numeric',
+            'no_str' => 'required|numeric|unique:psikolog,no_str,' . $request->old_no_str . ',no_str',
             'nama_psikolog' => 'required',
             'alumni' => 'required',
             'email' => 'required|unique:psikolog,email,' . $request->old_email . ',email|email:dns',
@@ -86,6 +87,7 @@ class PsikologController extends Controller
             'username.unique' => 'Username telah digunakan.',
             'no_str.required' => 'Nomor STR harus diisi.',
             'no_str.numeric' => 'Nomor STR harus berupa angka.',
+            'no_str.unique' => 'Nomor STR telah digunakan.',
             'nama_psikolog.required' => 'Nama psikolog harus diisi.',
             'alumni.required' => 'Alumni harus diisi.',
             'email.required' => 'Email harus diisi.',
@@ -107,7 +109,7 @@ class PsikologController extends Controller
         $psikolog ->alumni = $request -> alumni;
         $psikolog ->email = $request -> email;
         $psikolog ->no_telp =$request-> no_telp;
-        $psikolog ->kode_pt = Auth::user()->perguruanTinggi->kode_pt;
+        $psikolog ->kode_pt = $kode_pt;
 
         if($psikolog->save()){
             return redirect()->back()->with([

@@ -21,7 +21,7 @@ class PerguruanTinggiController extends Controller
         $validatedData = $request->validate([
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
-            'kode_pt' => 'required',
+            'kode_pt' => 'required|unique:perguruan_tinggi,kode_pt',
             'nama_pt' => 'required',
             'alamat_pt' => 'required',
             'kode_pos_pt' => 'required|numeric',
@@ -31,6 +31,7 @@ class PerguruanTinggiController extends Controller
             'password.required' => 'password harus diisi',
             'password.min' => 'password minimal 8 karakter',
             'kode_pt.required' => 'kode perguruan tinggi harus diisi',
+            'kode_pt.unique' => 'kode telah digunakan',
             'nama_pt.required' => 'nama perguruan tinggi harus diisi',
             'alamat_pt.required' => 'alamat perguruan tinggi harus diisi',
             'kode_pos_pt.required' => 'kode pos harus diisi',
@@ -67,7 +68,7 @@ class PerguruanTinggiController extends Controller
         $validatedData = $request->validate([
             'username' => 'required|unique:users,username,' . $request->old_username . ',username',
             'password' => 'required|min:8',
-            'kode_pt' => 'required',
+            'kode_pt' => 'required|unique:perguruan_tinggi,kode_pt,' . $request->old_kode_pt . ',kode_pt',
             'nama_pt' => 'required',
             'alamat_pt' => 'required',
             'kode_pos_pt' => 'required|numeric',
@@ -77,6 +78,7 @@ class PerguruanTinggiController extends Controller
             'password.required' => 'password harus diisi',
             'password.min' => 'password minimal 8 karakter',
             'kode_pt.required' => 'kode perguruan tinggi harus diisi',
+            'kode_pt.unique' => 'kode telah digunakan',
             'nama_pt.required' => 'nama perguruan tinggi harus diisi',
             'alamat_pt.required' => 'alamat perguruan tinggi harus diisi',
             'kode_pos_pt.required' => 'kode pos harus diisi',
@@ -140,13 +142,14 @@ class PerguruanTinggiController extends Controller
 
     public function updateProfile(Request $request, $id_user) {
         $validatedData = $request->validate([
-            'kode_pt' => 'required',
+            'kode_pt' => 'required|unique:perguruan_tinggi,kode_pt,' . $request->old_kode_pt . ',kode_pt',
             'nama_pt' => 'required',
             'alamat_pt' => 'required',
             'kode_pos_pt' => 'required|numeric',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ], [
             'kode_pt.required' => 'Kode perguruan tinggi harus diisi.',
+            'kode_pt.unique' => 'Kode perguruan tinggi telah digunakan.',
             'nama_pt.required' => 'Nama perguruan tinggi harus diisi.',
             'alamat_pt.required' => 'Alamat perguruan tinggi harus diisi.',
             'kode_pos_pt.required' => 'Kode pos harus diisi.',

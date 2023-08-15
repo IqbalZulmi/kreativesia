@@ -157,6 +157,7 @@
                         @csrf @method('put')
                         <input type="hidden"  name="old_username"  value="{{ $data->akunMahasiswa->username }}">
                         <input type="hidden" name="old_email" value="{{ $data->email }}">
+                        <input type="hidden" name="old_nim" value="{{ $data->nim }}">
                         <div class="mb-3">
                             <label for="" class="form-label">Username</label>
                             <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" value="{{ old('username',$data->akunMahasiswa->username) }}" required>

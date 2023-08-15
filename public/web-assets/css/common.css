@@ -160,6 +160,10 @@ div.dt-buttons.btn-group.flex-wrap button{
     border: var(--hard-color);
 }
 
+.d-flex.header.finisher-header{
+    width: 99.9%;
+}
+
 @media (min-width: 768px) {
     .footer img{
         height: 70px;

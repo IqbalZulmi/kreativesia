@@ -11,6 +11,7 @@ use App\Http\Controllers\PasienController;
 use App\Http\Controllers\RiwayatKonsulController;
 use App\Http\Controllers\PerguruanTinggiController;
 use App\Http\Controllers\PsikologController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\CekRole;
 use Illuminate\Support\Facades\Route;
 
@@ -64,16 +65,23 @@ Route::middleware(CekRole::class . ':mahasiswa')->group(function(){
     Route::get('/profile-mahasiswa', ([MahasiswaController::class,'showProfilePage']))
     ->name('showProfileMahasiswaPage');
 
-    Route::put('/profile-mahasiswa/{id_user}', ([MahasiswaController::class,'updateProfile']))
+    Route::put('/profile-mahasiswa/profile/{id_user}', ([MahasiswaController::class,'updateProfile']))
     ->name('updateProfileMahasiswa');
+
+    Route::put('/profile-mahasiswa/kata-sandi/{id_user}', ([UserController::class,'updateKataSandi']))
+    ->name('updateKataSandiMahasiswa');
+
 });
 
 Route::middleware(CekRole::class . ':psikolog')->group(function(){
     Route::get('/profile-psikolog', ([PsikologController::class,'showProfilePage']))
     ->name('showProfilePsikologPage');
 
-    Route::put('/profile-psikolog/{id_user}', ([PsikologController::class,'updateProfile']))
+    Route::put('/profile-psikolog/profile/{id_user}', ([PsikologController::class,'updateProfile']))
     ->name('updateProfilePsikolog');
+
+    Route::put('/profile-psikolog/kata-sandi/{id_user}', ([UserController::class,'updateKataSandi']))
+    ->name('updateKataSandiPsikolog');
 
     Route::get('/pasien', ([PasienController::class,'showPasienPage']))
     ->name('pasienPage');
@@ -104,8 +112,11 @@ Route::middleware(CekRole::class . ':perguruan tinggi')->group(function(){
     Route::get('/profile-perguruan-tinggi', ([PerguruanTinggiController::class,'showProfilePage']))
     ->name('showProfilePerguruanPage');
 
-    Route::put('/profile-perguruan-tinggi/{id_user}', ([PerguruanTinggiController::class,'updateProfile']))
+    Route::put('/profile-perguruan-tinggi/profile/{id_user}', ([PerguruanTinggiController::class,'updateProfile']))
     ->name('updateProfilePerguruan');
+
+    Route::put('/profile-perguruan-tinggi/kata-sandi/{id_user}', ([UserController::class,'updateKataSandi']))
+    ->name('updateKataSandiPerguruan');
 
     Route::get('/hasil-laporan-psikolog', ([LaporanKonsulController::class,'showHasilLaporanPsikologPage']))
     ->name('hasilLaporanPsikologPage');

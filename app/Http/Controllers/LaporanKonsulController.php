@@ -104,7 +104,7 @@ class LaporanKonsulController extends Controller
     public function showStatistik(Request $request) {
         $tahun = $request->input('tahun');
         $bulan = $request->input('bulan');
-        $kode_pt = auth()->user()->perguruanTinggi->kode_pt;
+        $kode_pt = Auth::user()->perguruanTinggi->kode_pt;
 
         $data = Fakultas::leftJoin('mahasiswa', function($join) use ($kode_pt) {
             $join->on('fakultas.id_fakultas', '=', 'mahasiswa.id_fakultas')
@@ -115,11 +115,22 @@ class LaporanKonsulController extends Controller
                 ->whereYear('laporan_konsultasi.created_at', $tahun)
                 ->whereMonth('laporan_konsultasi.created_at', $bulan);
         })
-        ->select('fakultas.fakultas',
-                DB::raw('SUM(CASE WHEN mahasiswa.jenis_kelamin = "Pria" THEN 1 ELSE 0 END) AS pria'),
-                DB::raw('SUM(CASE WHEN mahasiswa.jenis_kelamin = "Wanita" THEN 1 ELSE 0 END) AS wanita'))
+        ->where(function($query) use ($tahun, $bulan) {
+            $query->whereYear('laporan_konsultasi.created_at', $tahun)
+            ->whereMonth('laporan_konsultasi.created_at', $bulan);
+        })
         ->groupBy('fakultas.id_fakultas', 'fakultas.fakultas')
+        ->select('fakultas.fakultas',
+            DB::raw('SUM(CASE WHEN mahasiswa.jenis_kelamin = "Pria" THEN 1 ELSE 0 END) AS pria'),
+            DB::raw('SUM(CASE WHEN mahasiswa.jenis_kelamin = "Wanita" THEN 1 ELSE 0 END) AS wanita'))
         ->get();
+
+        if ($data->isEmpty()) {
+            return redirect()->back()->with([
+                'notifikasi' => 'Data tidak ditemukan.',
+                'type' => 'error'
+            ]);
+        }
 
         $labels = $data->pluck('fakultas');
         $dataPria = $data->pluck('pria');

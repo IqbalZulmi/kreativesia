@@ -1,9 +1,5 @@
 @extends('layout.html')
 
-@push('css')
-
-@endpush
-
 @section('content')
     <div class="min-vh-100 section-warm-bg-color">
         <div class="container">
@@ -44,7 +40,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row">
+            <div class="row" data-aos="fade-up" data-aos-duration="500">
                 <h1 class="border-dark border-2 border-bottom pb-2 my-3 text-capitalize">statistik riwayat konsultasi mahasiswa</h1>
             </div>
             <form action="{{ route('showChart') }}" method="POST" class="row row-cols-1 row-cols-sm-3">

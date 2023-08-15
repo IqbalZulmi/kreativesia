@@ -130,7 +130,8 @@
                     <div class="container-fluid">
                         <div class="row">
                             @csrf @method('put')
-                            <input type="hidden" name="old_username" value="{{ $data->username }}">
+                            <input type="hidden" name="old_username" value="{{ $data->akunPerguruanTinggi->username }}">
+                            <input type="hidden" name="old_kode_pt" value="{{ $data->kode_pt }}">
                             <div class="mb-3 col-6">
                                 <label for="" class="form-label">Username</label>
                                 <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" value="{{ old('username',$data->akunPerguruanTinggi->username) }}" required autofocus>

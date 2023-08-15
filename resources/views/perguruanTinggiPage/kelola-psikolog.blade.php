@@ -141,6 +141,7 @@
                         <div class="row">
                             <input type="hidden"  name="old_username"  value="{{ $data->akunPsikolog->username }}">
                             <input type="hidden" name="old_email" value="{{ $data->email }}">
+                            <input type="hidden" name="old_no_str" value="{{ $data->no_str }}">
                             <div class="mb-3">
                                 <label for="" class="form-label">Username</label>
                                 <input type="text" class="form-control @error('username') is-invalid @enderror"  name="username" placeholder="masukkan username" value="{{ old('username',$data->akunPsikolog->username) }}" required>

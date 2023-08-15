@@ -10,14 +10,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 order-1 order-lg-0">
-                    <div class="section-header">
+                    <div class="section-header" data-aos="fade-right" data-aos-duration="500">
                         <h1 class="text-uppercase h1">
                             <p class="hard-color">apa</p>
                             <p class="hard-color">yang sedang</p>
                             <p class="hard-color">kamu rasakan?</p>
                         </h1>
                     </div>
-                    <div class="section-content d-flex">
+                    <div class="section-content d-flex" data-aos="fade-up" data-aos-duration="500">
                         <div id="stres" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
                             <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="keterangan-box" id="keterangan-stres">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-stres">
                         <p class="mt-3" >
                             Stres adalah respons tubuh terhadap tekanan atau ancaman. Ini muncul saat kita merasa cemas atau tertekan oleh tuntutan, baik itu dari pekerjaan, studi, atau kehidupan pribadi.
                         </p>
@@ -78,7 +78,7 @@
                             Untuk mengatasi stres secara mandiri, coba gunakan teknik relaksasi seperti meditasi atau yoga, luangkan waktu untuk hobi atau kegiatan yang Anda nikmati, dan pastikan mendapatkan tidur yang cukup. Selain itu, makan makanan sehat dan olahraga secara teratur juga penting.
                         </p>
                     </div>
-                    <div class="keterangan-box" id="keterangan-depresi">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-depresi">
                         <p class="mt-3" >
                             Depresi adalah gangguan kesehatan mental yang ditandai oleh perasaan sedih yang mendalam, hilangnya minat atau kesenangan, perasaan berat atau kelelahan, dan kesulitan berkonsentrasi.
                         </p>
@@ -89,7 +89,7 @@
                             Untuk penanganan mandiri, latihan fisik teratur dan pola makan sehat bisa membantu. Praktik mindfulness dan teknik relaksasi seperti pernapasan dalam juga bisa membantu. Namun, mencari bantuan profesional sangat disarankan jika gejala berlanjut atau memburuk.
                         </p>
                     </div>
-                    <div class="keterangan-box" id="keterangan-adhd">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-adhd">
                         <p class="mt-3" >
                             Attention-Deficit/Hyperactivity Disorder (ADHD) adalah kondisi neurobiologis yang mempengaruhi individu sepanjang rentang kehidupan mereka. Ini biasanya ditandai dengan kesulitan dalam mempertahankan perhatian, hiperaktivitas, dan perilaku impulsif yang tidak sesuai dengan usia seseorang.
                         </p>
@@ -100,7 +100,7 @@
                             Meski tidak ada "penyembuhan" untuk ADHD, gejalanya dapat dikelola dengan berbagai cara. Penanganan mandiri bisa melibatkan teknik manajemen waktu dan organisasi, serta rutinitas tidur yang sehat. Latihan fisik teratur dan teknik relaksasi, seperti meditasi atau yoga, juga bisa membantu. Selain itu, pendekatan diet dan nutrisi yang sehat juga dapat berkontribusi dalam manajemen gejala. Ingat, untuk gejala yang parah atau mengganggu, sebaiknya konsultasikan dengan profesional kesehatan mental.
                         </p>
                     </div>
-                    <div class="keterangan-box" id="keterangan-toxic">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-toxic">
                         <p class="mt-3" >
                             Toxic relationship adalah hubungan interpersonal yang merugikan dan mengandung perilaku negatif. Ini dapat mempengaruhi kesehatan mental karena melibatkan manipulasi emosional dan pengabaian.
                         </p>
@@ -111,7 +111,7 @@
                             Untuk mengatasi toxic relationship, penting untuk meningkatkan kesadaran diri, membatasi interaksi dengan orang yang merugikan, dan mencari dukungan baik dari lingkungan sosial maupun dari profesional kesehatan mental jika diperlukan.
                         </p>
                     </div>
-                    <div class="keterangan-box" id="keterangan-kecemasan">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-kecemasan">
                         <p class="mt-3" >
                             Kecemasan adalah respons alami tubuh terhadap stres yang bisa menjadi masalah jika berlangsung lama atau tidak proporsional. Kondisi ini dapat berkembang menjadi gangguan kecemasan, sebuah kategori penyakit mental.
                         </p>
@@ -122,7 +122,7 @@
                             Pengelolaan kecemasan mandiri dapat mencakup teknik relaksasi seperti pernapasan dalam, olahraga teratur, pola tidur dan makan yang sehat, serta menghindari kafein dan alkohol. Namun, bantuan profesional tetap penting.
                         </p>
                     </div>
-                    <div class="keterangan-box" id="keterangan-gangguan-makanan">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-gangguan-makanan">
                         <p class="mt-3" >
                             Gangguan makan adalah kondisi yang ditandai oleh ketidaknormalan dalam pola makan, biasanya berupa makan terlalu banyak atau terlalu sedikit. Gangguan ini bisa mencakup anoreksia nervosa, bulimia nervosa, dan binge eating disorder.
                         </p>
@@ -133,7 +133,7 @@
                             Penanganan secara mandiri bisa mencakup langkah-langkah seperti menjaga pola makan seimbang, menjauhkan diri dari diet ekstrem, menjalankan olahraga rutin, dan mencari dukungan dari teman dan keluarga. Namun, bantuan profesional sering diperlukan.
                         </p>
                     </div>
-                    <div class="keterangan-box" id="keterangan-gangguan-tidur">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-gangguan-tidur">
                         <p class="mt-3" >
                             Gangguan tidur adalah serangkaian kondisi yang menghambat kapasitas seseorang untuk tidur secara konsisten dan berkualitas. Gangguan ini bisa merusak kesehatan fisik dan mental, serta mempengaruhi performa sehari-hari.
                         </p>
@@ -144,7 +144,7 @@
                             Penanganan mandiri untuk gangguan tidur meliputi menjaga rutinitas tidur yang teratur, mengurangi konsumsi kafein dan alkohol, serta menjaga lingkungan tidur agar tetap tenang dan nyaman. Aktivitas relaksasi, seperti meditasi atau mandi air hangat sebelum tidur, juga bisa membantu.
                         </p>
                     </div>
-                    <div class="keterangan-box" id="keterangan-ptsd">
+                    <div class="keterangan-box" data-aos="fade-up" data-aos-duration="500" id="keterangan-ptsd">
                         <p class="mt-3" >
                             PTSD, atau Post-Traumatic Stress Disorder, adalah kondisi kesehatan mental yang muncul setelah seseorang mengalami atau menyaksikan peristiwa traumatis seperti perang, kecelakaan, atau kekerasan.
                         </p>
@@ -165,16 +165,16 @@
     </section>
     <section id="psikolog" class="min-vh-100 d-flex justify-content-center align-items-center">
         <div class="container">
-            <h1 class="mx-auto text-uppercase heading">Para <span class="ms-1">Ahli</span></h1>
+            <h1 class="mx-auto text-uppercase heading" data-aos="fade-down" data-aos-duration="500">Para <span class="ms-1">Ahli</span></h1>
             @auth
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-gap-3 mb-3">
                     @foreach ($dataPsikolog as $index => $data )
-                        <div class="col">
-                            <div class="card mb-3 h-100">
+                        <div class="col" data-aos="fade-up" data-aos-duration="500">
+                            <div class="card mb-3">
                                 <div class="row g-0">
-                                    <div class="col-4">
-                                        <i class="fa-solid fa-circle ms-2 @if ($data->status == 'online') text-success @elseif ($data->status == 'sibuk') text-warning @else text-danger @endif"></i>
-                                        <img src="{{ asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
+                                    <div class="col-4 psikolog-image">
+                                        <i class="status-icon fa-solid fa-circle ms-2 mt-2 @if ($data->status == 'online') text-success @elseif ($data->status == 'sibuk') text-warning @else text-danger @endif"></i>
+                                        <img src="{{ $data->foto ? asset('storage/'.$data->foto) : asset('web-assets/image/doctor.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
                                     </div>
                                     <div class="col-8">
                                         <div class="card-body">

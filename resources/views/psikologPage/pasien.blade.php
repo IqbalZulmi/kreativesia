@@ -7,13 +7,13 @@
 @section('content')
     <div class="min-vh-100">
         <div class="container">
-            <h2 class="text-uppercase mx-auto heading">pasien <span class="ms-1">saya</span></h2>
+            <h2 class="text-uppercase mx-auto heading" data-aos="fade-down" data-aos-duration="500">pasien <span class="ms-1">saya</span></h2>
             <div class="row border-dark border-bottom mb-3">
-                <div class="col-12">
+                <div class="col-12" data-aos="fade-right" data-aos-duration="500">
                     <p class="fs-5 hard-color"><i class="fa-solid fa-circle text-primary"></i> Menunggu: {{ $dataPasienMenunggu->count() }} </p>
                 </div>
                 @forelse ($dataPasienMenunggu as $index => $data )
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="500">
                         <div class="card mb-3 h-100">
                             <div class="row g-0">
                                 <div class="col-4">
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="500">
                         <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
                         <div class="text-content">
                             <h3 class="text-capitalize text-center hard-color">Tidak ada data untuk ditampilkan!</h3>
@@ -49,11 +49,11 @@
                 @endforelse
             </div>
             <div class="row border-dark border-bottom mb-3">
-                <div class="col-12">
+                <div class="col-12" data-aos="fade-right" data-aos-duration="500">
                     <p class="fs-5 hard-color"><i class="fa-solid fa-circle text-success"></i> diterima: {{ $dataPasienDiterima->count() }} </p>
                 </div>
                 @forelse ($dataPasienDiterima as $index => $data )
-                    <div class="col-md-6 col-lg-4 mb-3">
+                    <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="500">
                         <div class="card mb-3 h-100">
                             <div class="row g-0">
                                 <div class="col-4">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="500">
                         <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
                         <div class="text-content">
                             <h3 class="text-capitalize text-center hard-color">Tidak ada data untuk ditampilkan!</h3>
@@ -95,7 +95,7 @@
                 @endforelse
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12" data-aos="fade-right" data-aos-duration="500">
                     <p class="fs-5 hard-color"><i class="fa-solid fa-circle text-secondary"></i> selesai: {{ $dataPasienSelesai->count() }} </p>
                 </div>
                 @forelse ($dataPasienSelesai as $index => $data )
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="500">
                         <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
                         <div class="text-content">
                             <h3 class="text-capitalize text-center hard-color">Tidak ada data untuk ditampilkan!</h3>

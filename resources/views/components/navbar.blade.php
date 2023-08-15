@@ -80,12 +80,14 @@
                                 </a>
                             </li>
                             <hr>
-                            <li class="nav-item">
-                                <a class="dropdown-item" href="{{ Auth::user()->role === 'mahasiswa' ? route('showProfileMahasiswaPage') : (Auth::user()->role === 'psikolog' ? route('showProfilePsikologPage') : route('showProfilePerguruanPage')) }}">
-                                    <i class="fa-solid fa-address-card"></i> Profile
-                                </a>
-                            </li>
-                            <hr>
+                            @if (Auth::user()->role != 'superadmin')
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ Auth::user()->role === 'mahasiswa' ? route('showProfileMahasiswaPage') : (Auth::user()->role === 'psikolog' ? route('showProfilePsikologPage') : route('showProfilePerguruanPage')) }}">
+                                        <i class="fa-solid fa-address-card"></i> Profile
+                                    </a>
+                                </li>
+                                <hr>
+                            @endif
                             <li class="nav-item">
                                 <a class="dropdown-item" href="{{ route('logout') }}">
                                     <i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar
@@ -120,11 +122,11 @@
                     $userPhoto = Auth::user()->mahasiswa->foto;
                 } elseif ($userRole == 'psikolog') {
                     $userPhoto = Auth::user()->psikolog->foto;
-                } elseif ($userRole == 'perguruanTinggi') {
+                } elseif ($userRole == 'perguruan tinggi') {
                     $userPhoto = Auth::user()->perguruanTinggi->foto;
                 }
             @endphp
-            <img src="{{ $userPhoto ? asset('storage/'.$userPhoto) : $photoUrl }}" alt="" class="rounded-circle object-fit-cover" height="35" width="35" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{ $userPhoto ? asset('storage/'.$userPhoto) : $photoUrl }}" alt="" class="border rounded-circle object-fit-cover" height="35" width="35" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></span>
             <ul class="dropdown-menu dropdown-menu-end animate slideIn">
                 <li class="nav-item">
@@ -133,12 +135,14 @@
                     </a>
                 </li>
                 <hr>
-                <li class="nav-item">
-                    <a class="dropdown-item" href="{{ Auth::user()->role === 'mahasiswa' ? route('showProfileMahasiswaPage') : (Auth::user()->role === 'psikolog' ? route('showProfilePsikologPage') : route('showProfilePerguruanPage')) }}">
-                        <i class="fa-solid fa-address-card"></i> Profile
-                    </a>
-                </li>
-                <hr>
+                @if (Auth::user()->role != 'superadmin')
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="{{ Auth::user()->role === 'mahasiswa' ? route('showProfileMahasiswaPage') : (Auth::user()->role === 'psikolog' ? route('showProfilePsikologPage') : route('showProfilePerguruanPage')) }}">
+                            <i class="fa-solid fa-address-card"></i> Profile
+                        </a>
+                    </li>
+                    <hr>
+                @endif
                 <li class="nav-item">
                     <a class="dropdown-item" href="{{ route('logout') }}">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar

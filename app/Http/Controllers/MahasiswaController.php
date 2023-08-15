@@ -14,7 +14,7 @@ class MahasiswaController extends Controller
     public function showKelolaPage(){
         $kodePt = Auth::user()->perguruanTinggi->kode_pt;
 
-        $mahasiswa = Mahasiswa::where('kode_pt', $kodePt)->get();
+        $mahasiswa = Mahasiswa::where('kode_pt', $kodePt)->latest()->get();
         $fakultas = Fakultas::where('kode_pt', $kodePt)->get();
         return view('perguruanTinggiPage.kelola-mahasiswa',[
             'dataMahasiswa' => $mahasiswa,
@@ -26,7 +26,7 @@ class MahasiswaController extends Controller
         $validatedData = $request->validate([
             'username' => 'required|unique:users,username',
             'password' => 'required|min:8',
-            'nim' => 'required|numeric',
+            'nim' => 'required|numeric|unique:mahasiswa,nim',
             'nama_mahasiswa' => 'required',
             'alamat' => 'required',
             'email' => 'required|unique:mahasiswa,email|email:dns',
@@ -39,6 +39,7 @@ class MahasiswaController extends Controller
             'password.min' => 'Password minimal 8 karakter.',
             'nim.required' => 'NIM harus diisi.',
             'nim.numeric' => 'NIM harus berupa angka.',
+            'nim.unique' => 'NIM telah digunakan.',
             'nama_mahasiswa.required' => 'Nama mahasiswa harus diisi.',
             'alamat.required' => 'Alamat harus diisi.',
             'email.required' => 'Email harus diisi.',
@@ -82,7 +83,7 @@ class MahasiswaController extends Controller
     public function editMahasiswa(Request $request,$id_user){
         $validateData = $request->validate([
             'username' => 'required|unique:users,username,' . $request->old_username . ',username',
-            'nim' => 'required|numeric',
+            'nim' => 'required|numeric|unique:mahasiswa,nim,'. $request->old_nim . ',nim',
             'nama_mahasiswa'=> 'required',
             'alamat' => 'required',
             'email' => 'required|unique:mahasiswa,email,'. $request->old_email . ',email|email:dns',
@@ -92,7 +93,8 @@ class MahasiswaController extends Controller
             'username.required' => 'username harus diisi',
             'username.unique' => 'username telah digunakan',
             'nim.required' => 'nim harus diisi',
-            'nama_mahasiswa.required' => 'nama_mahasiswa harus diisi',
+            'nim.unique' => 'nim telah digunakan.',
+            'nama_mahasiswa.required' => 'nama mahasiswa harus diisi',
             'email.required' => 'email harus diisi',
             'email.unique' => 'email telah digunakan',
             'email.email' => 'Format email tidak valid.',

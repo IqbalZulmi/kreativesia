@@ -42,7 +42,7 @@ class FakultasController extends Controller
             ]);
         }
     }
-    
+
     public function editFakultas(Request $request,$id_fakultas){
         $validateData = $request->validate([
             'fakultas' => 'required',
