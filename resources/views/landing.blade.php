@@ -18,7 +18,7 @@
                     </p>
                 </div>
                 <div class="col-lg-5 d-flex justify-content-center" data-aos="fade-down" data-aos-duration="500">
-                    <img src="{{ asset('web-assets/image/doctor.png') }}" alt="" height="300" width="auto">
+                    <img src="{{ asset('web-assets/image/landing-1.jpg') }}" class="img-fluid object-fit-cover">
                 </div>
             </div>
         </div>
@@ -27,8 +27,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 d-flex justify-content-center" data-aos="fade-down" data-aos-duration="500">
-                    <div class="rounded-3 border border-3 my-3">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" height="300" width="auto">
+                    <div class="my-3">
+                        <img src="{{ asset('web-assets/image/landing-2.jpg') }}" alt="" class="img-fluid object-fit-cover">
                     </div>
                 </div>
                 <div class="col-lg-8" data-aos="fade-up" data-aos-duration="500">
@@ -55,11 +55,7 @@
             </div>
             <div class="col-lg-5" data-aos="fade-down" data-aos-duration="500">
                 <div class="card mb-3">
-                    <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top object-fit-cover" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">YONATAN</h5>
-                        <p class="card-text">Universitas Solo</p>
-                    </div>
+                    <img src="{{ asset('web-assets/image/landing-3.jpg') }}" class="card-img-top img-fluid object-fit-cover" alt="...">
                 </div>
             </div>
         </div>
@@ -71,7 +67,7 @@
                 <div class="flow-content p-2" data-aos="fade-up" data-aos-duration="500">
                     <h2 class="text-center hard-color">1</h2>
                     <div class="rounded-circle border border-5 d-flex justify-content-center align-items-center">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" class="h-100 w-100">
+                        <img src="{{ asset('web-assets/image/alur-1.jpg') }}" alt="" class="img-fluid object-fit-cover rounded-circle">
                     </div>
                     <div class="text-content border rounded-3 mt-3 text-center py-2">
                         <h4 class="text-capitalize">Membuat janji temu</h4>
@@ -81,7 +77,7 @@
                 <div class="flow-content p-2" data-aos="fade-up" data-aos-duration="500">
                     <h2 class="text-center hard-color">2</h2>
                     <div class="rounded-circle border border-5 d-flex justify-content-center align-items-center">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" class="h-100 w-100">
+                        <img src="{{ asset('web-assets/image/alur-2.jpg') }}" alt="" class="img-fluid object-fit-cover rounded-circle">
                     </div>
                     <div class="text-content border rounded-3 mt-3 text-center py-2">
                         <h4 class="text-capitalize">Mengisi form janji temu</h4>
@@ -91,7 +87,7 @@
                 <div class="flow-content p-2" data-aos="fade-up" data-aos-duration="500">
                     <h2 class="text-center hard-color">3</h2>
                     <div class="rounded-circle border border-5 d-flex justify-content-center align-items-center">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" class="h-100 w-100">
+                        <img src="{{ asset('web-assets/image/alur-3.jpg') }}" alt="" class="img-fluid object-fit-cover rounded-circle">
                     </div>
                     <div class="text-content border rounded-3 mt-3 text-center py-2">
                         <h4 class="text-capitalize">menyesuaikan janji temu</h4>
@@ -101,7 +97,7 @@
                 <div class="flow-content p-2" data-aos="fade-up" data-aos-duration="500">
                     <h2 class="text-center hard-color">4</h2>
                     <div class="rounded-circle border border-5 d-flex justify-content-center align-items-center">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" class="h-100 w-100">
+                        <img src="{{ asset('web-assets/image/alur-4.jpg') }}" alt="" class="img-fluid object-fit-cover rounded-circle">
                     </div>
                     <div class="text-content border rounded-3 mt-3 text-center py-2">
                         <h4 class="text-capitalize">Berkonsultasi dengan psikolog</h4>
@@ -117,28 +113,28 @@
             <div class="row row-cols-1 row-cols-md-3 g-3 mt-3">
                 <div class="col">
                     <div class="card mb-3 h-100" data-aos="fade-up" data-aos-duration="500">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top object-fit-cover" alt="...">
+                        <img src="{{ asset('web-assets/image/ahli-pria.jpg') }}" class="card-img-top object-fit-cover" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">YONATAN</h5>
-                            <p class="card-text">Universitas Solo</p>
+                            <h5 class="card-title">Alfaturahman</h5>
+                            <p class="card-text">Politeknik Negeri Batam</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card mb-3 h-100" data-aos="fade-up" data-aos-duration="500">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top object-fit-cover" alt="...">
+                        <img src="{{ asset('web-assets/image/ahli-wanita.jpg') }}" class="card-img-top object-fit-cover" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">YONATAN</h5>
-                            <p class="card-text">Universitas Solo</p>
+                            <h5 class="card-title">Hadian Nelvi</h5>
+                            <p class="card-text">Politeknik Negeri Batam</p>
                         </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card mb-3 h-100" data-aos="fade-up" data-aos-duration="500">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top object-fit-cover" alt="...">
+                        <img src="{{ asset('web-assets/image/ahli-pria.jpg') }}" class="card-img-top object-fit-cover" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">YONATAN</h5>
-                            <p class="card-text">Universitas Solo</p>
+                            <h5 class="card-title">A.Iqbal Zulmi</h5>
+                            <p class="card-text">Politeknik Negeri Batam</p>
                         </div>
                     </div>
                 </div>

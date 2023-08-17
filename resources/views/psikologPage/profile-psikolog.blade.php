@@ -62,7 +62,7 @@
                     @enderror
                 </div>
                 <div class="mb-3 col-md-6" data-aos="fade-up" data-aos-duration="500">
-                    <label for="" class="form-label">Foto Mahasiswa</label>
+                    <label for="" class="form-label">Foto Psikolog</label>
                     <input type="file" name="foto" class="form-control buka @error('foto') is-invalid @enderror" readonly disabled>
                     @error('foto')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -108,3 +108,43 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+    <script type="text/javascript">
+        new FinisherHeader({
+            "count": 100,
+            "size": {
+                "min": 2,
+                "max": 8,
+                "pulse": 0
+            },
+            "speed": {
+                "x": {
+                "min": 0,
+                "max": 0.4
+                },
+                "y": {
+                "min": 0,
+                "max": 0.6
+                }
+            },
+            "colors": {
+                "background": "#fff6f6",
+                "particles": [
+                "#e7c7c6",
+                "#c98f8f",
+                "#ffc088"
+                ]
+            },
+            "blending": "none",
+            "opacity": {
+                "center": 1,
+                "edge": 0
+            },
+            "skew": 0,
+            "shapes": [
+                "c"
+            ]
+        });
+    </script>
+@endpush

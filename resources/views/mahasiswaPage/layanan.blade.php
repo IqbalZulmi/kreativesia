@@ -19,49 +19,49 @@
                     </div>
                     <div class="section-content d-flex" data-aos="fade-up" data-aos-duration="500">
                         <div id="stres" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/stress.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Stres</p>
                             </div>
                         </div>
                         <div id="depresi" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/depresi.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Depresi </p>
                             </div>
                         </div>
                         <div id="adhd" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/adhd.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Adhd</p>
                             </div>
                         </div>
                         <div id="toxic" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/toxic-relation.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Toxic Relation</p>
                             </div>
                         </div>
                         <div id="kecemasan" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/kecemasan.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex flex-wrap align-items-center">
                                 <p class="card-text">Kecemasan</p>
                             </div>
                         </div>
                         <div id="gangguan-makanan" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/gangguan-makan.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Gangguan Makanan</p>
                             </div>
                         </div>
                         <div id="gangguan-tidur" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/gangguan-tidur.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
                                 <p class="card-text">Gangguan Tidur</p>
                             </div>
                         </div>
                         <div id="ptsd" class="btn card d-flex justify-content-center align-items-center p-3 text-capitalize">
-                            <img src="{{ asset('web-assets/image/consult.png') }}" class="card-img-top rounded-circle border border-3" alt="...">
+                            <img src="{{ asset('web-assets/image/ptsd.jpg') }}" class="card-img-top rounded-circle border border-3" alt="...">
                             <div class="card-body d-flex align-items-center">
                                 <p class="card-text">PTSD</p>
                             </div>
@@ -158,7 +158,7 @@
                     <a href="#psikolog" class="btn btn-lg bg-soft text-capitalize mb-3">Carikan Ahli</a>
                 </div>
                 <div class="col-lg-5 d-flex justify-content-center align-items-center order-0 order-lg-1">
-                    <img src="{{ asset('web-assets/image/consult.png') }}" alt="" class="img-fluid object-fit-cover">
+                    <img src="{{ asset('web-assets/image/layanan-1.png') }}" alt="" class="img-fluid object-fit-cover">
                 </div>
             </div>
         </div>
@@ -174,7 +174,7 @@
                                 <div class="row g-0">
                                     <div class="col-4 psikolog-image">
                                         <i class="status-icon fa-solid fa-circle ms-2 mt-2 @if ($data->status == 'online') text-success @elseif ($data->status == 'sibuk') text-warning @else text-danger @endif"></i>
-                                        <img src="{{ $data->foto ? asset('storage/'.$data->foto) : asset('web-assets/image/doctor.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
+                                        <img src="{{ $data->foto ? asset('storage/'.$data->foto) : asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
                                     </div>
                                     <div class="col-8">
                                         <div class="card-body">
@@ -203,7 +203,7 @@
             @else
                 <div class="row">
                     <div class="col-12 d-flex flex-column justify-content-start align-items-center">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
+                        <img src="{{ asset('web-assets/image/empty.png') }}" alt="" width="auto" height="300">
                         <div class="text-content">
                             <h2 class="text-capitalize typing-animation hard-color">silakan masuk terlebih dahulu</h2>
                         </div>

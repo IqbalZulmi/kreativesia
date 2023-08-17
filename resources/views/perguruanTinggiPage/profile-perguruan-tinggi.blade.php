@@ -93,3 +93,43 @@
     </div>
 </div>
 @endsection
+
+@push('js')
+    <script type="text/javascript">
+        new FinisherHeader({
+            "count": 100,
+            "size": {
+                "min": 2,
+                "max": 8,
+                "pulse": 0
+            },
+            "speed": {
+                "x": {
+                "min": 0,
+                "max": 0.4
+                },
+                "y": {
+                "min": 0,
+                "max": 0.6
+                }
+            },
+            "colors": {
+                "background": "#fff6f6",
+                "particles": [
+                "#e7c7c6",
+                "#c98f8f",
+                "#ffc088"
+                ]
+            },
+            "blending": "none",
+            "opacity": {
+                "center": 1,
+                "edge": 0
+            },
+            "skew": 0,
+            "shapes": [
+                "c"
+            ]
+        });
+    </script>
+@endpush

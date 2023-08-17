@@ -14,10 +14,10 @@
                 </div>
                 @forelse ($dataPasienMenunggu as $index => $data )
                     <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="500">
-                        <div class="card mb-3 h-100">
+                        <div class="card mb-3">
                             <div class="row g-0">
                                 <div class="col-4">
-                                    <img src="{{ asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
+                                    <img src="{{ $data->mahasiswa->foto ? asset('storage/'.$data->mahasiswa->foto) : asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
                                 </div>
                                 <div class="col-8">
                                     <div class="card-body">
@@ -41,7 +41,7 @@
                     </div>
                 @empty
                     <div class="col-12 d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="500">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
+                        <img src="{{ asset('web-assets/image/empty.png') }}" alt="" width="auto" height="300">
                         <div class="text-content">
                             <h3 class="text-capitalize text-center hard-color">Tidak ada data untuk ditampilkan!</h3>
                         </div>
@@ -54,10 +54,10 @@
                 </div>
                 @forelse ($dataPasienDiterima as $index => $data )
                     <div class="col-md-6 col-lg-4 mb-3" data-aos="fade-up" data-aos-duration="500">
-                        <div class="card mb-3 h-100">
+                        <div class="card mb-3">
                             <div class="row g-0">
                                 <div class="col-4">
-                                    <img src="{{ asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
+                                    <img src="{{ $data->mahasiswa->foto ? asset('storage/'.$data->mahasiswa->foto) : asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
                                 </div>
                                 <div class="col-8">
                                     <div class="card-body">
@@ -87,7 +87,7 @@
                     </div>
                 @empty
                     <div class="col-12 d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="500">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
+                        <img src="{{ asset('web-assets/image/empty.png') }}" alt="" width="auto" height="300">
                         <div class="text-content">
                             <h3 class="text-capitalize text-center hard-color">Tidak ada data untuk ditampilkan!</h3>
                         </div>
@@ -100,10 +100,10 @@
                 </div>
                 @forelse ($dataPasienSelesai as $index => $data )
                     <div class="col-md-6 col-lg-4 mb-3">
-                        <div class="card mb-3 h-100">
+                        <div class="card mb-3">
                             <div class="row g-0">
                                 <div class="col-4">
-                                    <img src="{{ asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
+                                    <img src="{{ $data->mahasiswa->foto ? asset('storage/'.$data->mahasiswa->foto) : asset('web-assets/image/consult.png') }}" class="img-fluid rounded-start object-fit-cover" alt="...">
                                 </div>
                                 <div class="col-8">
                                     <div class="card-body">
@@ -127,7 +127,7 @@
                     </div>
                 @empty
                     <div class="col-12 d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-duration="500">
-                        <img src="{{ asset('web-assets/image/consult.png') }}" alt="" width="auto" height="300">
+                        <img src="{{ asset('web-assets/image/empty.png') }}" alt="" width="auto" height="300">
                         <div class="text-content">
                             <h3 class="text-capitalize text-center hard-color">Tidak ada data untuk ditampilkan!</h3>
                         </div>

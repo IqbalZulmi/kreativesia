@@ -6,26 +6,32 @@
     <title>PsychoSpace</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css">
-    <link rel="icon shortcut" href="{{ asset('web-assets/image/logo-icon.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('web-assets/css/login.css') }}">
+    @laravelPWA
 </head>
-<body class="min-vh-100 header finisher-header d-flex justify-content-center align-items-center">
-    <div class="login-form card">
-        <img src="{{ asset('web-assets/image/logo-icon.png') }}" alt="" class="img-fluid object-fit-cover mb-3">
-        <h4 class="text-center mb-3">Lupa kata sandi?</h4>
-        <form action="{{ route('password.email') }}" method="POST">
-            @csrf
-            <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan email Anda" value="{{ old('email') }}" required autofocus>
-                @error('email')
-                <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
-            </div>
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn">Kirim Email</button>
-            </div>
-        </form>
+<body class="min-vh-100 header finisher-header">
+    <a href="/login" class="btn m-3">
+        <i class="fa-solid fa-arrow-left"></i> kembali
+    </a>
+    <div class="container-login d-flex justify-content-center align-items-center">
+        <div class="login-form card">
+            <img src="{{ asset('web-assets/image/logo-icon.png') }}" alt="" class="img-fluid object-fit-cover mb-3">
+            <h4 class="text-center mb-3">Lupa kata sandi?</h4>
+            <form action="{{ route('password.email') }}" method="POST">
+                @csrf
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Masukan email Anda" value="{{ old('email') }}" required autofocus>
+                    @error('email')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn">Kirim Email</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="{{ asset('web-assets/js/finisher-header.es5.min.js') }}" type="text/javascript"></script>
