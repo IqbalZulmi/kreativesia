@@ -4,7 +4,7 @@ return [
     'name' => 'PsychoSpace',
     'manifest' => [
         'name' => env('APP_NAME', 'PsychoSpace'),
-        'short_name' => 'PWA',
+        'short_name' => 'PsychoSpace',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
