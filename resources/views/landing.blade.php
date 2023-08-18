@@ -28,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-4 d-flex justify-content-center" data-aos="fade-down" data-aos-duration="500">
                     <div class="my-3">
-                        <img src="{{ asset('web-assets/image/landing-2.jpg') }}" alt="" class="img-fluid object-fit-cover">
+                        <img src="{{ asset('web-assets/image/landing-2.png') }}" alt="" class="img-fluid object-fit-cover">
                     </div>
                 </div>
                 <div class="col-lg-8" data-aos="fade-up" data-aos-duration="500">
