@@ -149,8 +149,8 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-12">
-                                <img src="{{ asset('web-assets/image/consult.png') }}" alt="" class="rounded-circle object-fit-cover img-fluid">
+                            <div class="col-12 d-flex justify-content-center">
+                                <img src="{{ $data->mahasiswa->foto ? asset('storage/'.$data->mahasiswa->foto) : asset('web-assets/image/consult.png') }}" alt="" class="rounded-circle object-fit-cover mb-3" height="250" width="250">
                             </div>
                             <div class="col-12">
                                 <div class="table-responsive">
